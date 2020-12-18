@@ -1,0 +1,22 @@
+{
+  "name": "sample-create-react-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "build": "^0.1.4",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  },
+  "devDependencies": {
+    "react-scripts": "1.0.7"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "s3:create-bucket": "aws s3 mb s3://$BUCKET",
+    "s3:configure-bucket": "aws s3 website s3://$BUCKET --index-document index.html --error-document index.html",
+    "s3:upload": "aws s3 sync --acl public-read --sse --delete ./build s3://$BUCKET"
+  }
+}
