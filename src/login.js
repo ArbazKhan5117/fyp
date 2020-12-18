@@ -11,7 +11,7 @@ class Login extends Component{
                     <input type="password" placeholder="Password" /><br/>
                     <button type="submit" className="login-btn">Login</button>
                 </form>
-                <h6>If you forget your password<spam className="signup-btn"> Click here</spam> </h6>
+                <h6>If you forget your password<spam className="signup-btn"> Click Here</spam> </h6>
             </div>
         );
     }
