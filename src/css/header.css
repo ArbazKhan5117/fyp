@@ -1,0 +1,38 @@
+.header-class{
+    width:100%;
+    border:2px solid gray;
+    background: lightyellow;
+    text-align:center;
+    border-bottom-color: lightyellow;
+    display: inline-flex;
+}
+.header-class h1{
+    margin-left:300px;
+}
+.header-class .V{
+    color: orange;
+}
+.header-class .T{
+    color: lightgreen;
+}
+.header-class .M{
+    color: purple;
+}
+.header-class .logo-class{
+    width:70px;
+    height:50px;
+    border-radius: 20px;
+    margin-left:30px;
+    margin-top:5px;
+}
+.header-class .logo-class img{
+    width:70px;
+    height:50px;
+}
+.header-class h5{
+    margin-left:240px;
+    background:black;
+    color:white;
+    width:140px;
+    border-radius:10px;
+}
