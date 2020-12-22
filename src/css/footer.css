@@ -1,0 +1,10 @@
+.footer-class{
+        width:100%;
+        height:40px;
+        border:2px solid gray;
+        background: lightyellow;
+        text-align:center;
+        border-top-color: lightyellow;
+        font-size: 13px;
+    
+}

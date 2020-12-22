@@ -1,0 +1,13 @@
+.homeVideo-class{
+    width:240px;
+    height:140px;
+    border-radius: 20px;
+    margin-left:25px;
+    margin-top:15px;
+    background: white;
+    
+}
+.homeVideo-class p{
+    font-size: 13px;
+    margin-top:5px;
+}

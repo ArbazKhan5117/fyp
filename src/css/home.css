@@ -1,0 +1,11 @@
+.home-class{
+    width:100%;
+    border:2px solid gray;
+    background:lightgoldenrodyellow;
+    text-align:center;
+    border-top-color: lightgoldenrodyellow ;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex: 1;
+}
