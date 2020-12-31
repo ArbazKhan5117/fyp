@@ -1,0 +1,71 @@
+.studentMyProfile-class{
+    width:100%;
+    border:2px solid gray;
+    background:lightgoldenrodyellow;
+    border-top-color: lightgoldenrodyellow ;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex: 1;
+}
+.present-info{
+    width:30%;
+    border-right:2px solid gray;
+    text-align:left;
+}
+.present-info .profile{
+    width:100px;
+    height:100px;
+    background: white;
+    margin:10px auto;
+    border-radius: 10px;
+}
+.present-info .profile img{
+    width:100%;
+    height:100%;
+}
+.present-info h4{
+    padding-left:20px;
+    padding-bottom:5px;
+    margin-bottom:0px;
+}
+.present-info .infos{
+    color: blue;
+    padding-left:60px;
+    padding-top:0px;
+    margin-top:0px;
+}
+.edit-info{
+    width:69.2%;
+    border:1px solid gray;
+    height:380px;
+}
+.edit-info h2{
+    padding-top:0px;
+}
+.edit-info .profile-label,
+.edit-info .level-label{
+    margin-right:20px;
+}
+
+.profile-label,
+.submit-btn{
+    margin-top:20px;
+    width:70px;
+    height:25px;
+    font-size:15px;
+    border-radius:5px;
+    
+}
+.profile-label{
+    width:120px;
+}
+.profile-label:hover,
+.submit-btn:hover{
+    background: blue;
+    color: white;
+    transform:scale(1.3);
+    border:2px white solid;
+}
+

@@ -1,3 +1,4 @@
+
 .home-class{
     width:100%;
     border:2px solid gray;
@@ -8,4 +9,11 @@
     flex-wrap: wrap;
     align-items: center;
     flex: 1;
+}
+.tutorHome-class{
+    width:100%;
+    border:2px solid gray;
+    background:lightgoldenrodyellow;
+    text-align:center;
+    border-top-color: lightgoldenrodyellow ;
 }

@@ -1,7 +1,7 @@
+.forget-class,
 .login-class{
-    width: 400px;
-    height: 400px;
-    margin:50px 300px;
+    width: 500px;
+    margin:50px 280px;
     background: lemonchiffon;
     box-shadow: 10px 10px 10px gray;
     border-radius:20px;
@@ -10,6 +10,19 @@
 }
 h2{
     padding-top:20px;
+}
+.forget-class h3{
+    padding-top:30px;
+    padding-bottom:0px;
+}
+.forget-class h5{
+    padding-bottom:30px;
+    padding-top:0px;
+}
+
+.forget-class h6,
+.login-class h6{
+    padding-bottom:20px;
 }
 .login-signup-btn{
     margin-left:10px;
@@ -25,6 +38,7 @@ form{
 form input{
     margin-bottom:20px;
 }
+.forget-btn,
 .login-btn{
     margin-top:20px;
     width:70px;
@@ -33,6 +47,8 @@ form input{
     border-radius:5px;
     
 }
+
+.forget-btn:hover,
 .login-btn:hover{
     background: blue;
     color: white;
@@ -41,4 +57,9 @@ form input{
 }
 h6{
     padding-top:50px;
+}
+.newpass-msg{
+    padding-top:0px;
+    padding-bottom:0px;
+    color:blueviolet;
 }

@@ -9,13 +9,35 @@ class Menu extends Component{
         home: 'Home'
     };
     render(){
-        console.log(this.props.page);
+        
         return(
             <div className="menu-class">
                 <h1>{this.props.page}</h1>
                 <ul className='menu-list'>
-                <Link to="/home"><li className={this.props.page === this.props.home ? 'selected-page' : ' '}>{this.props.home}</li> </Link>
-                    <li className={this.props.page === this.props.myProf ? 'selected-page' : ' '}>{this.props.myProf}</li>
+                <Link to={{
+                    pathname: '/home',
+                    state: {
+                        username: this.props.username,
+                        email: this.props.email,
+                        level: this.props.level,
+                        contact: this.props.contact,
+                        profile: this.props.profile,
+                        profileType: this.props.profileType
+                    }
+                }}>
+                    <li className={this.props.page === this.props.home ? 'selected-page' : ' '}>{this.props.home}</li> </Link>
+                <Link to={{
+                        pathname: '/studentmyprofile',
+                        state: {
+                            username: this.props.username,
+                            email: this.props.email,
+                            level: this.props.level,
+                            contact: this.props.contact,
+                            profile: this.props.profile,
+                            profileType: this.props.profileType
+                        }
+                    }}>
+                    <li className={this.props.page === this.props.myProf ? 'selected-page' : ' '}>{this.props.myProf}</li></Link>
                     <li className={this.props.page === this.props.post ? 'selected-page' : ' '}>{this.props.post}</li>
                     <li className={this.props.page === this.props.search ? 'selected-page' : ' '}>{this.props.search}</li>
                     

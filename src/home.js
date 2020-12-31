@@ -20,10 +20,16 @@ class Home extends Component{
     }
     
     render(){
+        const username = this.props.location.state.username;
+        const email=this.props.location.state.email;
+        const level=this.props.location.state.level;
+        const contact=this.props.location.state.contact;
+        const profile=this.props.location.state.profile;
+        const profileType=this.props.location.state.profileType;
         return(
             <div>
-                <Header username="Ali Khan" desig="Student"/>
-                <Menu page="Home"/>
+                <Header username={username} desig="Student" profile={profile}/>
+                <Menu page="Home" username={username} email={email} level={level} contact={contact} profile={profile} profileType={profileType}/>
                 
                 <div className='home-class'>
                     {this.state.videos.map(i=>
