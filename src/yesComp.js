@@ -18,7 +18,9 @@ class YesComp extends Component{
                             email: this.props.email,
                             level: this.props.level,
                             profile: this.props.profile,
-                            profileType: this.props.profileType
+                            user_id: this.props.user_id,
+                            city: this.props.city,
+                            country: this.props.country
                         }
                     }}>
                         <spam className="signup-login-btn"> {this.props.btn}</spam></Link> : 
@@ -26,7 +28,15 @@ class YesComp extends Component{
                     <Link to={{
                         pathname: '/tutorhome',
                         state: {
-                            username: this.props.username
+                            username: this.props.username,
+                            contact: this.props.contact,
+                            email: this.props.email,
+                            subject: this.props.subject,
+                            profile: this.props.profile,
+                            education: this.props.education,
+                            user_id: this.props.user_id,
+                            city: this.props.city,
+                            country: this.props.country
                         }
                     }}>
                         <spam className="signup-login-btn"> {this.props.btn}</spam></Link>}

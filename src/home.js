@@ -25,11 +25,14 @@ class Home extends Component{
         const level=this.props.location.state.level;
         const contact=this.props.location.state.contact;
         const profile=this.props.location.state.profile;
-        const profileType=this.props.location.state.profileType;
+        const user_id=this.props.location.state.user_id;
+        const city=this.props.location.state.city;
+        const country=this.props.location.state.country;
         return(
             <div>
                 <Header username={username} desig="Student" profile={profile}/>
-                <Menu page="Home" username={username} email={email} level={level} contact={contact} profile={profile} profileType={profileType}/>
+                <Menu page="Home" username={username} email={email} level={level} contact={contact}
+                 profile={profile} user_id={user_id} city={city} country={country}/>
                 
                 <div className='home-class'>
                     {this.state.videos.map(i=>

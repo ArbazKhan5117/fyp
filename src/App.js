@@ -8,6 +8,8 @@ import PaymentPage from './paymentPage.js';
 import TutorHome from './tutorHome.js';
 import ForgetPass from './forgetPass.js';
 import StudentMyProfile from './studentMyProfile.js';
+import TutorMyProfile from './tutorMyProfile.js';
+import StudentSearch from './studentSearch';
 import './App.css';
 class App extends Component {
   render() {
@@ -21,6 +23,8 @@ class App extends Component {
         <Route exact path="/tutorhome" component={TutorHome} />
         <Route exact path="/forgetpassword" component={ForgetPass} />
         <Route exact path="/studentmyprofile" component={StudentMyProfile} />
+        <Route exact path="/tutormyprofile" component={TutorMyProfile} />
+        <Route exact path="/studentsearch" component={StudentSearch} />
       </Switch>
       </BrowserRouter>
     );

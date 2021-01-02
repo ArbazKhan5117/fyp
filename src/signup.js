@@ -14,12 +14,11 @@ class Signup extends Component {
             country: '',
             city: '',
             contact: '',
-            designation: 'Select your designation',
+            designation: 'tutor',
             profile: null,
             valid: '',
             message: '',
             profileName: '',
-            profileType: '',
             upload: 'yes'
         };
         this.nameHandler = this.nameHandler.bind(this);
@@ -120,7 +119,7 @@ class Signup extends Component {
             alert('Please confirm your Password carefully');
         }
         else {
-            console.log(this.state);
+            //console.log(this.state);
 
             const fd = new FormData();
             fd.append('name', this.state.name);
@@ -131,7 +130,6 @@ class Signup extends Component {
             fd.append('contact', this.state.contact);
             fd.append('designation', this.state.designation);
             fd.append('profile', this.state.profileName);
-            fd.append('profileType',this.state.profileType);
             var headers = {
                 'Content-Type': 'application/json;charset=UTF-8',
                 "Access-Control-Allow-Origin": "*"

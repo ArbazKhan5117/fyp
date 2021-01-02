@@ -1,0 +1,44 @@
+.studentSearch-class{
+    width:100%;
+    background:lightgoldenrodyellow;
+    border-bottom: 2px solid gray;
+    margin-top:0px;
+    text-align: center;
+    display: flex;
+    flex: 1;
+}
+.studentSearch-class .search-class{
+    width:30%;
+    margin-top:0px;
+    border-right: 2px solid gray;
+}
+.search-class h2{
+    padding-top:15px;
+    
+}
+.search-class .subject-opt{
+    margin-left:20px;
+}
+.studentSearch-class .showTutor{
+    width:68%;
+
+}
+.studentSearch-class .showTutor table{
+    border:1px solid gray;
+    margin-left:20px;
+    margin-bottom:20px;
+}
+.studentSearch-class .showTutor table tr{
+    padding:20px;
+}
+.studentSearch-class .showTutor table tr th,
+.studentSearch-class .showTutor table tr td{
+    padding-right:17px;
+    border:1px solid gray;
+    padding-left:16px;
+}
+.studentSearch-class .showTutor table tr td img{
+    width:60px;
+    height:60px;
+
+}

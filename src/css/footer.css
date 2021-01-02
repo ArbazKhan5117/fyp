@@ -1,8 +1,8 @@
 .footer-class{
         width:100%;
         height:40px;
-        border:2px solid gray;
-        background: lightyellow;
+        border-top:2px solid gray;
+        background:lemonchiffon;
         text-align:center;
         border-top-color: lightyellow;
         font-size: 13px;

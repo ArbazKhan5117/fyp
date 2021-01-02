@@ -22,7 +22,9 @@ class Menu extends Component{
                         level: this.props.level,
                         contact: this.props.contact,
                         profile: this.props.profile,
-                        profileType: this.props.profileType
+                        user_id: this.props.user_id,
+                        city: this.props.city,
+                        country: this.props.country
                     }
                 }}>
                     <li className={this.props.page === this.props.home ? 'selected-page' : ' '}>{this.props.home}</li> </Link>
@@ -34,12 +36,27 @@ class Menu extends Component{
                             level: this.props.level,
                             contact: this.props.contact,
                             profile: this.props.profile,
-                            profileType: this.props.profileType
+                            user_id: this.props.user_id,
+                            city: this.props.city,
+                            country: this.props.country
                         }
                     }}>
                     <li className={this.props.page === this.props.myProf ? 'selected-page' : ' '}>{this.props.myProf}</li></Link>
                     <li className={this.props.page === this.props.post ? 'selected-page' : ' '}>{this.props.post}</li>
-                    <li className={this.props.page === this.props.search ? 'selected-page' : ' '}>{this.props.search}</li>
+                   <Link to={{
+                        pathname: '/studentsearch',
+                        state: {
+                            username: this.props.username,
+                            email: this.props.email,
+                            level: this.props.level,
+                            contact: this.props.contact,
+                            profile: this.props.profile,
+                            user_id: this.props.user_id,
+                            city: this.props.city,
+                            country: this.props.country
+                        }
+                    }}
+                   > <li className={this.props.page === this.props.search ? 'selected-page' : ' '}>{this.props.search}</li></Link>
                     
                 </ul>
             </div>

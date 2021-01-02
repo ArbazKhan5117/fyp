@@ -10,11 +10,19 @@ class TutorHome extends Component {
     }
     render() {
         const username = this.props.location.state.username;
-        console.log(username);
+        const contact = this.props.location.state.contact;
+        const email = this.props.location.state.email;
+        const subject = this.props.location.state.subject;
+        const education = this.props.location.state.education;
+        const profile = this.props.location.state.profile;
+        const city = this.props.location.state.city;
+        const country = this.props.location.state.country;
+        
         return (
             <div>
-                <Header username={username} desig="Tutor" />
-                <TutorMenu page="Home" />
+                <Header username={username} desig="Tutor" profile={profile}/>
+                <TutorMenu page="Home" username={username} contact={contact} email={email} subject={subject} 
+                education={education} profile={profile} city={city} country={country}/>
                 <div className="tutorHome-class">
                     <UploadVideo />
                 </div>

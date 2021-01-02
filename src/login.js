@@ -16,7 +16,11 @@ class Login extends Component{
             contact: '',
             level: '',
             profile: '',
-            profileType: ''
+            subject: '',
+            education: '',
+            user_id: '',
+            city: '',
+            country: ''
 
         }
         this.emailHandler = this.emailHandler.bind(this);
@@ -47,16 +51,23 @@ class Login extends Component{
             if(res.data.valid=='no'){
                 alert(res.data.data);
             }else{
-                
+                if(res.data.designation=== 'student'){
+                    this.setState({level: res.data.level})
+                }else if(res.data.designation === 'tutor'){
+                    this.setState({subject: res.data.subject}) 
+                    this.setState({education: res.data.education})
+                }
                 this.setState({ message: res.data.data });
                 this.setState({username: res.data.username});
                 this.setState({designation: res.data.designation});
                 this.setState({contact: res.data.contact});
-                this.setState({level: res.data.level});
                 this.setState({profile: res.data.profile});
-                this.setState({profileType: res.data.profiletype})
+                this.setState({user_id: res.data.user_id});
+                this.setState({city: res.data.city});
+                this.setState({country: res.data.country});
                 this.setState({ valid: res.data.valid });
-                
+                console.log(res.data.city);
+                console.log(res.data.country);
             }
             
         }
@@ -74,7 +85,12 @@ class Login extends Component{
                     <button type="submit" className="login-btn">Login</button>
                 </form>
                 <h6>If you forget your password<Link to="/forgetpassword"><spam className="login-signup-btn"> Click Here</spam></Link> </h6>
-                {this.state.valid==='yes' ? <YesComp message={this.state.message} username={this.state.username} designation={this.state.designation} level={this.state.level} contact={this.state.contact} email={this.state.email} profile={this.state.profile} profileType={this.state.profileType} btn='Home'/> : ''}
+                {this.state.valid==='yes' ? <YesComp message={this.state.message} 
+                username={this.state.username} designation={this.state.designation} level={this.state.level} 
+                contact={this.state.contact} email={this.state.email} profile={this.state.profile} 
+                subject={this.state.subject} education={this.state.education} user_id={this.state.user_id} 
+                city={this.state.city} country={this.state.country} 
+                btn='Home'/> : ''}
             </div>
         );
     }
