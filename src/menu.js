@@ -42,7 +42,19 @@ class Menu extends Component{
                         }
                     }}>
                     <li className={this.props.page === this.props.myProf ? 'selected-page' : ' '}>{this.props.myProf}</li></Link>
-                    <li className={this.props.page === this.props.post ? 'selected-page' : ' '}>{this.props.post}</li>
+                    <Link to={{
+                        pathname: '/post',
+                        state: {
+                            username: this.props.username,
+                            email: this.props.email,
+                            level: this.props.level,
+                            contact: this.props.contact,
+                            profile: this.props.profile,
+                            user_id: this.props.user_id,
+                            city: this.props.city,
+                            country: this.props.country
+                        }
+                    }}><li className={this.props.page === this.props.post ? 'selected-page' : ' '}>{this.props.post}</li></Link>
                    <Link to={{
                         pathname: '/studentsearch',
                         state: {

@@ -1,0 +1,181 @@
+.post-class{
+    width: 100%;
+    border-bottom: 2px solid gray;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    
+    flex: 1;
+    background:tan;
+}
+
+/*---------------------- My-Post starts----------------------------------*/
+.post-class .my-post{
+    width:33%;
+    
+    
+}
+.post-class .my-post .myPost-input{
+    width:200px;
+    height:60px;
+    border:1px solid gray;
+    border-radius: 10px;
+    margin-top:20px;
+    padding:5px;
+}
+.post-class .my-post .pre-posts-btn,
+.post-class .my-post .upload-btn{
+    margin-top:20px;
+    width:70px;
+    height:25px;
+    font-size:15px;
+    border-radius:5px;
+    margin-bottom:20px;
+    
+}
+.post-class .my-post .pre-posts-btn{
+    width:150px;
+}
+.post-class .my-post .pre-posts-btn:hover,
+.post-class .my-post .upload-btn:hover{
+    background: blue;
+    color: white;
+    transform:scale(1.3);
+    cursor: pointer;
+    border:2px white solid;
+}
+
+/*--------------------------Other-Posts starts---------------------------*/
+.post-class .other-posts{
+    width:34%;
+    background:cornsilk;
+    
+}
+.post-class .my-post h2,
+.post-class .answers h2,
+.post-class .other-posts h2{
+    padding-top:0px;
+}
+.post-class .other-posts .posts-frame{
+    width:310px;
+    height:210px;
+    background: lightgrey;
+    margin-left:30px;
+    border-radius: 10px; 
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+}
+.post-class .other-posts .posts-frame .my-profile,
+.post-class .other-posts .posts-frame .poster-profile{
+    width:40px;
+    height:40px;
+    background:white;
+    margin:5px;
+    margin-bottom:0px;
+    border-radius: 20px;
+}
+.post-class .other-posts .posts-frame p{
+   margin-bottom:0px;
+   padding-bottom: 0px;
+   font-weight:bold ;
+}
+.post-class .other-posts .posts-frame img{
+    width:40px;
+    height:40px;
+    border-radius: 20px;
+    
+}
+.post-class .other-posts .posts-frame .othersPost-input{
+    height:80px;
+    width: 235px;
+    margin-left:25px;
+    font-size: 15px;
+    border-radius:10px;
+
+
+}
+.post-class .other-posts .posts-frame .my-answer{
+    width:200px;
+    height:50px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex: 1;
+    
+}
+.post-class .other-posts .posts-frame .my-answer .yourAnswer-input{
+    width:190px;
+    height:40px;
+    margin-right:0px;
+    
+}
+.post-class .other-posts .pre-btn{
+    margin-right:220px;
+    margin-top:7px;
+    border-radius: 5px;
+}
+.post-class .other-posts .next-btn{
+    border-radius: 5px;
+    margin-top:7px;
+}
+.post-class .other-posts .next-btn:hover,
+.post-class .other-posts .pre-btn:hover{
+    background:skyblue;
+    cursor: pointer;
+}
+.post-class .other-posts .posts-frame .ans-upload-btn{
+    width: 50px;
+    height:20px;
+    font-size: 9px;
+    margin-top:13px;
+    margin-right:10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.post-class .other-posts .posts-frame .ans-upload-btn:hover{
+    background: skyblue;
+    cursor:pointer;
+}
+/*--------------------------answers starts---------------------------------------*/
+.post-class .answers{
+    width:33%;
+}
+.post-class .answers .posts-frame{
+    width:270px;
+    height:110px;
+    background: lightgray;
+    margin-left:50px;
+    margin-bottom:10px;
+    border-radius: 10px; 
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+}
+.post-class .answers .posts-frame .poster-profile{
+    width:40px;
+    height:40px;
+    background:white;
+    margin:5px;
+    margin-bottom:0px;
+    border-radius: 20px;
+}
+.post-class .answers .posts-frame img{
+    width:40px;
+    height:40px;
+    border-radius: 20px;
+}
+.post-class .answers .posts-frame p{
+    margin-bottom:0px;
+    padding-bottom: 0px;
+    font-weight:bold ;
+ }
+ .post-class .answers .posts-frame .othersPost-input{
+    height:40px;
+    width: 230px;
+    margin-left:20px;
+    font-size: 15px;
+    border-radius:10px;
+
+
+}
