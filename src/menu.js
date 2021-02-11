@@ -27,7 +27,7 @@ class Menu extends Component{
                         country: this.props.country
                     }
                 }}>
-                    <li className={this.props.page === this.props.home ? 'selected-page' : ' '}>{this.props.home}</li> </Link>
+                    <li className={this.props.page === this.props.home ? 'selected-page' : ' '}><div className="menu-li">{this.props.home}</div></li> </Link>
                 <Link to={{
                         pathname: '/studentmyprofile',
                         state: {
@@ -41,7 +41,7 @@ class Menu extends Component{
                             country: this.props.country
                         }
                     }}>
-                    <li className={this.props.page === this.props.myProf ? 'selected-page' : ' '}>{this.props.myProf}</li></Link>
+                    <li className={this.props.page === this.props.myProf ? 'selected-page' : ' '}><div className="menu-li">{this.props.myProf}</div></li></Link>
                     <Link to={{
                         pathname: '/post',
                         state: {
@@ -52,9 +52,11 @@ class Menu extends Component{
                             profile: this.props.profile,
                             user_id: this.props.user_id,
                             city: this.props.city,
-                            country: this.props.country
+                            country: this.props.country,
+                            subject: '',
+                            education: ''
                         }
-                    }}><li className={this.props.page === this.props.post ? 'selected-page' : ' '}>{this.props.post}</li></Link>
+                    }}><li className={this.props.page === this.props.post ? 'selected-page' : ' '}><div className="menu-li">{this.props.post}</div></li></Link>
                    <Link to={{
                         pathname: '/studentsearch',
                         state: {
@@ -68,7 +70,7 @@ class Menu extends Component{
                             country: this.props.country
                         }
                     }}
-                   > <li className={this.props.page === this.props.search ? 'selected-page' : ' '}>{this.props.search}</li></Link>
+                   > <li className={this.props.page === this.props.search ? 'selected-page' : ' '}><div className="menu-li">{this.props.search}</div></li></Link>
                     
                 </ul>
             </div>

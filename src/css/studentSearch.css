@@ -1,6 +1,6 @@
 .studentSearch-class{
     width:100%;
-    background:lightgoldenrodyellow;
+    background: Gainsboro;
     border-bottom: 2px solid gray;
     margin-top:0px;
     text-align: center;
@@ -11,6 +11,7 @@
     width:30%;
     margin-top:0px;
     border-right: 2px solid gray;
+    height:315px;
 }
 .search-class h2{
     padding-top:15px;
@@ -20,25 +21,62 @@
     margin-left:20px;
 }
 .studentSearch-class .showTutor{
-    width:68%;
+    width:69.5%;
+    border-left: 2px solid gray;
+    overflow: scroll;
+    overflow-x: hidden;
+    height:315px;
 
 }
-.studentSearch-class .showTutor table{
-    border:1px solid gray;
-    margin-left:20px;
-    margin-bottom:20px;
+.studentSearch-class .showTutor h3{
+    color:rgb(26, 168, 26);
 }
-.studentSearch-class .showTutor table tr{
-    padding:20px;
-}
-.studentSearch-class .showTutor table tr th,
-.studentSearch-class .showTutor table tr td{
-    padding-right:17px;
-    border:1px solid gray;
-    padding-left:16px;
-}
+
 .studentSearch-class .showTutor table tr td img{
     width:60px;
     height:60px;
 
 }
+.search-class .submit-bttn{
+    border-radius: 5px;
+    margin-top:20px;
+    height:30px;
+    width: 80px;
+    background:dodgerblue;
+    border:2px solid gray;
+    transition:all .25s ease-in-out;
+    font-weight: bold;
+    box-shadow: -8px 10px 5px 0px rgba(136,107,107,0.75);
+-webkit-box-shadow: -8px 10px 5px 0px rgba(136,107,107,0.75);
+-moz-box-shadow: -8px 10px 5px 0px rgba(136,107,107,0.75);
+}
+.search-class .submit-bttn:hover{
+    background: rgb(104, 203, 236); 
+    border:2px solid rgb(104, 203, 236);
+    transform:scale(1.08);
+    transition:all .25s ease-in-out;
+    
+
+}
+.customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .customers td, .customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .customers tr:nth-child(even){background-color: #f2f2f2;}
+  
+  .customers tr:hover {background-color: lightskyblue;}
+  
+  .customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+  }

@@ -29,10 +29,11 @@ class NewPassword extends Component{
     }
     submitHandler=(event) => {
         event.preventDefault();
+        let paswd=  /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/;
         if(this.state.confirm !== this.state.password){
             alert('Please confirm your Password carefully');
         }
-        else{
+        else if(this.state.password.match(paswd)){
         const fd = new FormData();
         fd.append('name', this.props.name);
         fd.append('email', this.props.email);
@@ -56,16 +57,18 @@ class NewPassword extends Component{
             
         }
         );
+    }else{
+        alert('Please set a password between 7 to 15 characters which contain at least one numeric digit and a special character');
     }
     }
     render(){
         return(
             <div>
                 <form onSubmit={this.submitHandler}>
-                <input type="password" required value={this.state.password} onChange={this.passwordHandler} placeholder="Enter New Password" /><br/>
-                <input type="password" required value={this.state.confirm} onChange={this.confirmHandler} placeholder="Confirm your Password" /><br/>
+                <input type="password" required value={this.state.password} onChange={this.passwordHandler} placeholder="Enter New Password" className="login-input"/><br/>
+                <input type="password" required value={this.state.confirm} onChange={this.confirmHandler} placeholder="Confirm your Password" className="login-input"/><br/>
                 <button type="submit" className="forget-btn">Update</button>
-                {this.state.valid==='yes' ? <h3 className="newpass-msg">{this.state.message}</h3> : ''}
+                {this.state.valid==='yes' ? <h4 className="newpass-msg">{this.state.message}</h4> : ''}
                 </form>
             </div>
         );

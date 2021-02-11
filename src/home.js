@@ -31,6 +31,7 @@ class Home extends Component{
         return(
             <div>
                 <Header username={username} desig="Student" profile={profile}/>
+        
                 <Menu page="Home" username={username} email={email} level={level} contact={contact}
                  profile={profile} user_id={user_id} city={city} country={country}/>
                 
@@ -38,6 +39,7 @@ class Home extends Component{
                     {this.state.videos.map(i=>
                     <HomeVideo info={i}/>)}
                 </div>
+                
                 <Footer />
             </div>
         );

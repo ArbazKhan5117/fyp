@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "ac-react-simple-image-slider": "^0.0.9",
     "axios": "^0.21.1",
     "build": "^0.1.4",
     "react": "^15.7.0",

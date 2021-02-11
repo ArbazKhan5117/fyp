@@ -7,5 +7,27 @@
         border-top-color: lightyellow;
         font-size: 13px;
         border-bottom:2px solid gray;
-    
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        flex: 1;
 }
+.footer-class p{
+        margin-left:300px;
+}
+.footer-class button{
+        margin-left:350px;
+        width:70px;
+        height:25px;
+        font-size:15px;
+        border-radius:10px;
+        transition:all .25s ease-in-out;
+}
+.footer-class button:hover{
+        background: rgb(49, 178, 221);
+        color: white;
+        transform:scale(1.2);
+        border:2px white solid;
+        cursor:pointer;
+        transition:all .25s ease-in-out;
+    }

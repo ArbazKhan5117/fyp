@@ -23,10 +23,11 @@ class TutorMenu extends Component{
                         profile: this.props.profile,
                         education: this.props.education,
                         city: this.props.city,
+                        user_id: this.props.user_id,
                         country: this.props.country
                     }
                 }}>
-                <li className={this.props.page === this.props.home ? 'selected-page' : ' '}>{this.props.home}</li> </Link>
+                <li className={this.props.page === this.props.home ? 'selected-page' : ' '}><div className="menu-li">{this.props.home}</div></li> </Link>
                 <Link to={{
                     pathname: '/tutormyprofile',
                     state: {
@@ -37,11 +38,27 @@ class TutorMenu extends Component{
                         profile: this.props.profile,
                         education: this.props.education,
                         city: this.props.city,
+                        user_id: this.props.user_id,
                         country: this.props.country
                     }
-                }}> <li className={this.props.page === this.props.myProf ? 'selected-page' : ' '}>{this.props.myProf}</li></Link>
-                    <li className={this.props.page === this.props.post ? 'selected-page' : ' '}>{this.props.post}</li>
-                    <li className={this.props.page === this.props.search ? 'selected-page' : ' '}>{this.props.search}</li>
+                }}> <li className={this.props.page === this.props.myProf ? 'selected-page' : ' '}><div className="menu-li">{this.props.myProf}</div></li></Link>
+                    <Link to={{
+                    pathname: '/post',
+                    state: {
+                        username: this.props.username,
+                        email: this.props.email,
+                        subject: this.props.subject,
+                        contact: this.props.contact,
+                        profile: this.props.profile,
+                        education: this.props.education,
+                        city: this.props.city,
+                        user_id: this.props.user_id,
+                        country: this.props.country,
+                        level: ''
+                    }
+                }}
+                    ><li className={this.props.page === this.props.post ? 'selected-page' : ' '}><div className="menu-li">{this.props.post}</div></li></Link>
+                    <li className={this.props.page === this.props.search ? 'selected-page' : ' '}><div className="menu-li">{this.props.search}</div></li>
                     
                 </ul>
             </div>

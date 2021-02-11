@@ -2,18 +2,19 @@
 .home-class{
     width:100%;
     border-bottom:2px solid gray;
-    background:lightgoldenrodyellow;
+    background: Gainsboro;
     text-align:center;
     border-top-color: lightgoldenrodyellow ;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     flex: 1;
+    
 }
 .tutorHome-class{
     width:100%;
     border-bottom:2px solid gray;
-    background:lightgoldenrodyellow;
+    background: Gainsboro;
     text-align:center;
     border-top-color: lightgoldenrodyellow ;
 }

@@ -8,7 +8,7 @@ class YesComp extends Component{
                 <div >
                     <h3>{this.props.message}</h3>
 
-                    <h4 className='yesComp-class'>Goto{this.props.btn==='Login' ? <Link to='/'><spam className="signup-login-btn"> {this.props.btn}</spam></Link> : 
+                    <h4 className='yesComp-class'>Goto{this.props.btn==='Login' ? <Link to='/login'><spam className="signup-login-btn"> {this.props.btn}</spam></Link> : 
                     this.props.designation === 'student' ? 
                     <Link to={{
                         pathname: '/home',

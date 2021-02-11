@@ -1,8 +1,16 @@
+body{
+    background: skyblue;
+}
+*{
+	text-decoration:none;
+	list-style:none;
+
+}
 .forget-class,
 .login-class{
     width: 500px;
-    margin:50px 280px;
-    background: lemonchiffon;
+    margin:30px 280px;
+    background: Gainsboro;
     box-shadow: 10px 10px 10px gray;
     border-radius:20px;
     text-align: center;
@@ -10,6 +18,10 @@
 }
 h2{
     padding-top:20px;
+    font-family: "Times New Roman", Times, serif;
+}
+.login-class h5{
+    font-style: italic;
 }
 .forget-class h3{
     padding-top:30px;
@@ -27,10 +39,12 @@ h2{
 .login-signup-btn{
     margin-left:10px;
     cursor:pointer;
-    color: blue
+    color: blue;
+
 }
 .login-signup-btn:hover{
-    color: skyblue;
+    color:  rgb(48, 168, 207);
+
 }
 form{
     margin-top:50px;
@@ -45,21 +59,46 @@ form input{
     height:25px;
     font-size:15px;
     border-radius:5px;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    transition:all .25s ease-in-out;
     
 }
 
 .forget-btn:hover,
 .login-btn:hover{
-    background: blue;
-    color: white;
-    transform:scale(1.3);
-    border:2px white solid;
+    background: rgb(104, 203, 236);
+    color: black;
+    transform:scale(1.2);
+    border:2px lavender solid;
+    transition:all .25s ease-in-out;
+    cursor: pointer;
 }
 h6{
     padding-top:50px;
+    font-style: italic;
 }
 .newpass-msg{
     padding-top:0px;
     padding-bottom:0px;
-    color:blueviolet;
+    color: rgb(90, 56, 56);
+}
+.forget-class .login-input,
+.login-class .login-input{
+    border-radius: 5px;
+    height:25px;
+    width: 200px;
+    border:2px solid lavender;
+    transition:all .25s ease-in-out;
+    box-shadow: -8px 10px 5px 0px rgba(136,107,107,0.75);
+-webkit-box-shadow: -8px 10px 5px 0px rgba(136,107,107,0.75);
+-moz-box-shadow: -8px 10px 5px 0px rgba(136,107,107,0.75);
+}
+.forget-class .login-input:hover,
+.login-class .login-input:hover{
+    border:2px solid rgb(104, 203, 236);
+    transform:scale(1.08);
+    transition:all .25s ease-in-out;
+    
+
 }

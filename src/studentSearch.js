@@ -75,15 +75,15 @@ class StudentSearch extends Component {
                                 <option value='English'>English</option>
                             </select><br /><br />
 
-                            <input type="submit" value="Search" onClick={this.findAddress} className="submit-btn" />
+                            <input type="submit" value="Search" onClick={this.findAddress} className="submit-bttn" />
                         </form>
                     </div>
                     {this.state.valid === '' ? "" :
                         this.state.tutors[0] ?
 
                             <div className="showTutor">
-                                <h3>Tutor's of {this.state.subject} in your area</h3>
-                                <table>
+                                <h3>Tutor's of {this.state.subject} in your city</h3>
+                                <table className="customers">
                                     <tr>
                                         <th>Profile</th>
                                         <th>Name</th>

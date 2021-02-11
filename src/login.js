@@ -1,12 +1,13 @@
-import React,{Component} from 'react';
-import {Link} from "react-router-dom";
+import React, { Component } from 'react';
+import { Link, withRouter } from "react-router-dom";
 import axios from 'axios';
 import YesComp from './yesComp';
+import Header from './header';
 import './css/login.css';
-class Login extends Component{
-    constructor(props){
+class Login extends Component {
+    constructor(props) {
         super(props);
-        this.state={
+        this.state = {
             email: '',
             password: '',
             valid: '',
@@ -25,7 +26,7 @@ class Login extends Component{
         }
         this.emailHandler = this.emailHandler.bind(this);
         this.passwordHandler = this.passwordHandler.bind(this);
-        this.submitHandler=this.submitHandler.bind(this);
+        this.submitHandler = this.submitHandler.bind(this);
     }
     emailHandler = (event) => {
         event.preventDefault();
@@ -35,7 +36,7 @@ class Login extends Component{
         event.preventDefault();
         this.setState({ password: event.target.value });
     }
-    submitHandler(event){
+    submitHandler(event) {
         event.preventDefault();
         const fd = new FormData();
         fd.append('email', this.state.email);
@@ -48,49 +49,89 @@ class Login extends Component{
         ).then(res => {
             console.log(res.data.data);
             console.log(res.data.valid);
-            if(res.data.valid=='no'){
+            if (res.data.valid == 'no') {
                 alert(res.data.data);
-            }else{
-                if(res.data.designation=== 'student'){
-                    this.setState({level: res.data.level})
-                }else if(res.data.designation === 'tutor'){
-                    this.setState({subject: res.data.subject}) 
-                    this.setState({education: res.data.education})
+            } else {
+                if (res.data.designation === 'student') {
+                    this.setState({ level: res.data.level })
+                } else if (res.data.designation === 'tutor') {
+                    this.setState({ subject: res.data.subject })
+                    this.setState({ education: res.data.education })
                 }
                 this.setState({ message: res.data.data });
-                this.setState({username: res.data.username});
-                this.setState({designation: res.data.designation});
-                this.setState({contact: res.data.contact});
-                this.setState({profile: res.data.profile});
-                this.setState({user_id: res.data.user_id});
-                this.setState({city: res.data.city});
-                this.setState({country: res.data.country});
+                this.setState({ username: res.data.username });
+                this.setState({ designation: res.data.designation });
+                this.setState({ contact: res.data.contact });
+                this.setState({ profile: res.data.profile });
+                this.setState({ user_id: res.data.user_id });
+                this.setState({ city: res.data.city });
+                this.setState({ country: res.data.country });
                 this.setState({ valid: res.data.valid });
                 console.log(res.data.city);
                 console.log(res.data.country);
             }
-            
+
         }
         );
     }
-    render(){
-        
-        return(
-            <div className="login-class">
-                <h2>Login to your account</h2>
-                <h5>Don't have an account?<Link to="/signup"><spam className="login-signup-btn">Signup</spam></Link></h5>
-                <form onSubmit={this.submitHandler}>
-                    <input type="email" required value={this.state.email} onChange={this.emailHandler} placeholder="Email"/><br/>
-                    <input type="password" required value={this.state.password} onChange={this.passwordHandler} placeholder="Password" /><br/>
-                    <button type="submit" className="login-btn">Login</button>
-                </form>
-                <h6>If you forget your password<Link to="/forgetpassword"><spam className="login-signup-btn"> Click Here</spam></Link> </h6>
-                {this.state.valid==='yes' ? <YesComp message={this.state.message} 
-                username={this.state.username} designation={this.state.designation} level={this.state.level} 
-                contact={this.state.contact} email={this.state.email} profile={this.state.profile} 
-                subject={this.state.subject} education={this.state.education} user_id={this.state.user_id} 
-                city={this.state.city} country={this.state.country} 
-                btn='Home'/> : ''}
+    render() {
+
+        return (
+            <div className="login">
+                <Header username="login-header" />
+                <div className="login-class">
+                    <h2>Login to your account</h2>
+                    <h5>Don't have an account?<Link to="/signup"><spam className="login-signup-btn">Register</spam></Link></h5>
+                    <form onSubmit={this.submitHandler}>
+                        <input type="email" required value={this.state.email} onChange={this.emailHandler} placeholder="Email" className="login-input"/><br />
+                        <input type="password" required value={this.state.password} onChange={this.passwordHandler} placeholder="Password" className="login-input"/><br />
+
+
+                        <button type="submit" className="login-btn">Login</button>
+                    </form>
+                    <h6>If you forget your password<Link to="/forgetpassword"><spam className="login-signup-btn"> Click Here</spam></Link> </h6>
+                    {
+
+                        this.state.valid === 'yes' && this.state.designation === 'student' ?
+                            this.props.history.push({
+                                pathname: '/home',
+                                state: {
+                                    username: this.state.username,
+                                    contact: this.state.contact,
+                                    email: this.state.email,
+                                    level: this.state.level,
+                                    profile: this.state.profile,
+                                    user_id: this.state.user_id,
+                                    city: this.state.city,
+                                    country: this.state.country
+                                }
+                            })
+                            :
+                            ''
+
+                    }
+                    {
+
+                        this.state.valid === 'yes' && this.state.designation === 'tutor' ?
+                            this.props.history.push({
+                                pathname: '/tutorhome',
+                                state: {
+                                    username: this.state.username,
+                                    contact: this.state.contact,
+                                    email: this.state.email,
+                                    subject: this.state.subject,
+                                    profile: this.state.profile,
+                                    education: this.state.education,
+                                    user_id: this.state.user_id,
+                                    city: this.state.city,
+                                    country: this.state.country
+                                }
+                            })
+                            :
+                            ''
+
+                    }
+                </div>
             </div>
         );
     }

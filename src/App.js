@@ -10,6 +10,7 @@ import ForgetPass from './forgetPass.js';
 import StudentMyProfile from './studentMyProfile.js';
 import TutorMyProfile from './tutorMyProfile.js';
 import StudentSearch from './studentSearch.js';
+import Slider from './slider.js';
 import Post from './post.js';
 import './App.css';
 class App extends Component {
@@ -17,7 +18,7 @@ class App extends Component {
     return(
       <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={Login} />
+        <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/home" component={Home} />
         <Route path="/payment" component={PaymentPage} />
@@ -27,6 +28,7 @@ class App extends Component {
         <Route exact path="/tutormyprofile" component={TutorMyProfile} />
         <Route exact path="/studentsearch" component={StudentSearch} />
         <Route exact path="/post" component={Post} />
+        <Route exact path="/" component={Slider} />
       </Switch>
       </BrowserRouter>
     );
