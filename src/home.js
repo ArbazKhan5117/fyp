@@ -36,8 +36,8 @@ class Home extends Component{
                  profile={profile} user_id={user_id} city={city} country={country}/>
                 
                 <div className='home-class'>
-                    {this.state.videos.map(i=>
-                    <HomeVideo info={i}/>)}
+                    
+                    <HomeVideo level={level} username={username} profile={profile} user_id={user_id}/>
                 </div>
                 
                 <Footer />

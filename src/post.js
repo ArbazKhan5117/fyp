@@ -160,8 +160,6 @@ class Post extends Component {
             
          }
          );
-         
-
     }
     showMyPrePost = (turn) =>{
         if(turn === 'last'){

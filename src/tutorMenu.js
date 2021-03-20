@@ -6,7 +6,8 @@ class TutorMenu extends Component{
         post: 'Post',
         search: 'Search',
         myProf: 'MyProfile',
-        home: 'Home'
+        home: 'Home',
+        dashboard: 'Dashboard'
     };
     render(){
         return(
@@ -58,7 +59,23 @@ class TutorMenu extends Component{
                     }
                 }}
                     ><li className={this.props.page === this.props.post ? 'selected-page' : ' '}><div className="menu-li">{this.props.post}</div></li></Link>
-                    <li className={this.props.page === this.props.search ? 'selected-page' : ' '}><div className="menu-li">{this.props.search}</div></li>
+                    <Link to={{
+                    pathname: '/tutordashboard',
+                    state: {
+                        username: this.props.username,
+                        email: this.props.email,
+                        subject: this.props.subject,
+                        contact: this.props.contact,
+                        profile: this.props.profile,
+                        education: this.props.education,
+                        city: this.props.city,
+                        user_id: this.props.user_id,
+                        country: this.props.country,
+                        level: ''
+                    }
+                }}
+                    ><li className={this.props.page === this.props.dashboard ? 'selected-page' : ' '}><div className="menu-li">{this.props.dashboard}</div></li></Link>
+                  
                     
                 </ul>
             </div>

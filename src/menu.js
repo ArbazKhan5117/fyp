@@ -6,7 +6,8 @@ class Menu extends Component{
         post: 'Post',
         search: 'Search',
         myProf: 'MyProfile',
-        home: 'Home'
+        home: 'Home',
+        dashboard: 'Dashboard'
     };
     render(){
         
@@ -71,7 +72,20 @@ class Menu extends Component{
                         }
                     }}
                    > <li className={this.props.page === this.props.search ? 'selected-page' : ' '}><div className="menu-li">{this.props.search}</div></li></Link>
-                    
+                    <Link to={{
+                        pathname: '/studentdashboard',
+                        state: {
+                            username: this.props.username,
+                            email: this.props.email,
+                            level: this.props.level,
+                            contact: this.props.contact,
+                            profile: this.props.profile,
+                            user_id: this.props.user_id,
+                            city: this.props.city,
+                            country: this.props.country
+                        }
+                    }}
+                   > <li className={this.props.page === this.props.dashboard ? 'selected-page' : ' '}><div className="menu-li">{this.props.dashboard}</div></li></Link>
                 </ul>
             </div>
         );

@@ -1,33 +1,46 @@
+
 .uploadVideo-class h2{
     margin-top:0px;
+    margin-bottom: 0px;
+    
 }
+.uploadVideo-class form{
+    margin-top: 10px;
+}
+
 .uploadVideo-class .form-selection{
     width:200px;
-    margin-bottom:15px;
+    margin-bottom:10px;
 }
 .uploadVideo-class .form-input{
     width:193px;
-    margin-bottom:15px;
+    margin-bottom:10px;
 }
-
+.uploadVideo-class .uploadContent-btn,
 .uploadVideo-class .upload-btn{
     margin-top:10px;
     width:70px;
     height:25px;
     font-size:15px;
-    border-radius:5px;
-    margin-bottom:20px;
+    border-radius:10px;
+    margin-bottom:10px;
     transition:all .35s ease-in-out;
 }
+.uploadVideo-class .uploadContent-btn{
+    margin-left:10px;
+}
+.uploadVideo-class .uploadContent-btn:hover,
 .uploadVideo-class .upload-btn:hover{
     background: rgb(104, 203, 236);
     transition:all .35s ease-in-out;
     color: white;
-    transform:scale(1.3);
+    transform:scale(1.2);
     border:2px white solid;
     cursor: pointer;
 }
-
+.uploadVideo-class .uploadContent-btn:hover{
+    background: rgb(8, 179, 236);
+}
 .uploadVideo-class .login-input-dr,
 .uploadVideo-class .login-input{
     border-radius: 5px;
@@ -40,17 +53,77 @@
 -webkit-box-shadow: -8px 10px 5px 0px rgba(136,107,107,0.75);
 -moz-box-shadow: -8px 10px 5px 0px rgba(136,107,107,0.75);
 }
+
+.uploadVideo-class .login-input-dr{
+    height:30px;
+
+}
+.uploadVideo-class .login-select{
+    border-radius: 5px;
+    height:30px;
+    margin-bottom: 5px;
+    transition:all .25s ease-in-out;
+    box-shadow: -8px 10px 5px 0px rgba(136,107,107,0.75);
+-webkit-box-shadow: -8px 10px 5px 0px rgba(136,107,107,0.75);
+-moz-box-shadow: -8px 10px 5px 0px rgba(136,107,107,0.75);
+}
+.uploadVideo-class .login-select:hover,
 .uploadVideo-class .login-input-dr:hover,
 .uploadVideo-class .login-input:hover{
     border:2px solid rgb(104, 203, 236);
     transform:scale(1.08);
     transition:all .25s ease-in-out;
 }
-.uploadVideo-class .login-input-dr{
-    height:50px;
+.uploadVideo-class .uploadIconVideo,
+.uploadVideo-class .uploadIcon{
+    position: absolute;
+    width:25px;
+    height:25px;
+    margin-top:-220px;
+    z-index: 1;
+    display: none;
 }
-.uploadVideo-class .login-select{
-    border-radius: 5px;
-    height:30px;
-    margin-bottom: 5px;
+.uploadVideo-class .uploadIconVideo{
+    margin-top: -200px;
+}
+.uploadVideo-class .onuploadVideo,
+.uploadVideo-class .onupload{
+    position: absolute;
+    width:25px;
+    height:25px;
+    margin-top:-220px;
+    z-index: 3;
+    -webkit-animation: floatBubble 2s infinite  normal ease-out;
+    animation: floatBubble 2s infinite  normal ease-out;
+}
+@-webkit-keyframes floatBubble {
+    0% {
+        top:720px;
+    }
+    100% {
+        top: 700px;
+    }
+}
+@keyframes floatBubble {
+    0% {
+        top:720px;
+    }
+    100% {
+        top: 700px;
+    }
+}
+.uploadVideo-class .onuploadVideo{
+    margin-top:-165px;
+}
+
+.uploadVideo-class{
+    border-radius: 10px;
+    
+    
+    
+}
+.uploadVideo-class form{
+    overflow: scroll;
+    overflow-x: hidden;
+    height:258px;
 }

@@ -1,0 +1,31 @@
+.cardInfo-class{
+    width:400px;
+    padding:10px;
+    padding-top:20px;
+    text-align: center;
+    border:2px solid gray;
+    margin-left:55px;
+    height:80px;
+    border-radius: 20px;
+    background:white;
+}
+.cardInfo-class .cardInfo-btn{
+    margin-top:25px;
+    width:70px;
+    height:25px;
+    font-size:15px;
+    border-radius:10px;
+    transition:all .25s ease-in-out;
+
+}
+.cardInfo-class .cardInfo-btn:hover{
+    background: rgb(49, 178, 221);
+    color: white;
+    transform:scale(1.2);
+     border:2px white solid;
+     cursor:pointer;
+    transition:all .25s ease-in-out;
+}
+h3{
+    text-align: center;
+}

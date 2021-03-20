@@ -1,7 +1,7 @@
 
 .home-class{
     width:100%;
-    border-bottom:2px solid gray;
+    
     background: Gainsboro;
     text-align:center;
     border-top-color: lightgoldenrodyellow ;
@@ -12,9 +12,10 @@
     
 }
 .tutorHome-class{
-    width:100%;
+    width:70%;
     border-bottom:2px solid gray;
     background: Gainsboro;
     text-align:center;
+    margin-left:150px;
     border-top-color: lightgoldenrodyellow ;
 }

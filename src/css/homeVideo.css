@@ -1,8 +1,8 @@
 .homeVideo-class{
     width:240px;
-    height:140px;
+    height:160px;
     border-radius: 20px;
-    margin-left:25px;
+    margin-left:32px;
     margin-top:10px;
     background: white;
     margin-bottom: 5px;
@@ -11,4 +11,106 @@
 .homeVideo-class p{
     font-size: 13px;
     margin-top:5px;
+}
+.homeVideo-class p .price-p{
+    font-weight: bold;
+}
+.homeInsideMain-class{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex: 1;
+}
+.homeInside-class{
+    width:100%;
+    height:317px;
+    
+    background: Gainsboro;
+    text-align:center;
+    border-top-color: lightgoldenrodyellow ;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex: 1;
+    overflow: scroll;
+    overflow-x: hidden;
+    
+}
+.homeInsideSearch-class{
+    width:20%;
+    height: 300px;
+    background: gray;
+    border-radius: 20px;
+    margin-left: 10px;
+}
+.homeInsideSearch-class .sort-by{
+    margin-top:20px;
+}
+.homeInsideSearch-class .form-selection{
+    width:159px;
+    margin-bottom:15px;
+}
+.homeInsideSearch-class .form-input{
+    width:143px;
+    margin-bottom:15px;
+}
+.homeInsideSearch-class .login-input{
+    border-radius: 5px;
+    height:20px;
+    width: 150px;
+    margin-bottom: 20px;
+    border:2px solid lavender;
+    transition:all .25s ease-in-out;
+    box-shadow: -8px 10px 5px 0px rgba(136,107,107,0.75);
+-webkit-box-shadow: -8px 10px 5px 0px rgba(136,107,107,0.75);
+-moz-box-shadow: -8px 10px 5px 0px rgba(136,107,107,0.75);
+}
+.homeInsideSearch-class .login-input:hover{
+    border:2px solid rgb(104, 203, 236);
+    transform:scale(1.08);
+    transition:all .25s ease-in-out;
+}
+.homeInsideSearch-class .login-select{
+    border-radius: 5px;
+    height:27px;
+    margin-bottom: 20px;
+    transition:all .25s ease-in-out;
+}
+.homeInsideSearch-class .login-select:hover{
+    border:2px solid rgb(104, 203, 236);
+    transform:scale(1.08);
+    transition:all .25s ease-in-out;
+}
+.homeInsideSearch-class .upload-btn{
+    margin-top:0px;
+    width:70px;
+    height:25px;
+    font-size:15px;
+    border-radius:10px;
+    margin-bottom:20px;
+    transition:all .35s ease-in-out;
+}
+.homeInsideSearch-class .upload-btn:hover{
+    background: rgb(104, 203, 236);
+    transition:all .35s ease-in-out;
+    color: white;
+    transform:scale(1.2);
+    border:2px gray solid;
+    cursor: pointer;
+}
+.homeInsideSearch-class h2{
+    margin-bottom:-10px;
+    padding-bottom: 0px;
+    margin-top:-10px;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    
+}
+.homeInsideSearch-class form{
+    margin-top: 30px;
+    padding-top: 0px;
+}
+.homeInside-class h2{
+    text-align: center;
+    margin-left:220px;
 }

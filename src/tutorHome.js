@@ -25,7 +25,7 @@ class TutorHome extends Component {
                 <TutorMenu page="Home" username={username} contact={contact} email={email} subject={subject} 
                 education={education} profile={profile} city={city} country={country} user_id={user_id}/>
                 <div className="tutorHome-class">
-                    <UploadVideo />
+                    <UploadVideo user_id={user_id}/>
                 </div>
                 <Footer />
             </div>

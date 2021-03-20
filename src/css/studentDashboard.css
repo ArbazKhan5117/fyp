@@ -1,0 +1,143 @@
+.studentDashboard-class{
+    width: 100%;
+    background: Gainsboro;
+    height:273px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+.studentDashboard-class h2{
+  text-align: center;
+}
+.customers {
+    font-family: "Times New Roman", Times, serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top:0px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .customers td, .customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    
+  }
+  
+  .customers tr:nth-child(even){background-color: #f2f2f2;}
+  
+  .customers tr:hover {background-color: lightskyblue;}
+  
+  .customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+  }
+  .customers .sr-td{
+    width:132px;
+  }
+  .customers .lvl-td{
+    width:130px;
+}
+.customers .topic-td{
+    width: 132px;
+}
+.customers .sub-td{
+    width: 170px;
+}
+
+.customers .tut-td{
+    width: 252px;
+}
+.tutorStop-btn,
+.customers .playTut-btn,
+.customers .play-btn{
+    width:50px;
+    height:20px;
+    font-size:10px;
+    margin-right:20px;
+    border-radius:8px;
+    transition:all .35s ease-in-out;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+}
+.tutorStop-btn{
+  position:absolute;
+  z-index: 120;
+  margin-top:-34px;
+  margin-left:740px;
+  
+}
+.customers .playTut-btn{
+  margin-right:0px;
+}
+.tutorStop-btn:hover,
+.customers .playTut-btn:hover,
+.customers .play-btn:hover{
+    background: rgb(69, 89, 95);
+    transition:all .35s ease-in-out;
+    color: white;
+    transform:scale(1.1);
+    border:2px rgb(69, 89, 95) solid;
+    cursor: pointer;
+}
+/*------------------------TutuorDashboard-CSS starts--------------------------*/
+.video-description-class{
+  width: 70%;
+}
+.Tutor-dashboard{
+  width:100%;
+  background: Gainsboro;
+  display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex: 1;
+}
+.Tutor-dashboard .balance-class{
+  background:gray;
+  height:270px;
+  width:26%;
+  margin:20px;
+  border-radius: 60px 10px;
+}
+.customers .srTut-th{
+  width:27px;
+}
+.customers .srTut-td{
+  width:37px;
+}
+.customers .lvlTut-th{
+  width:42px;
+}
+.customers .lvlTut-td{
+  width:42px;
+}
+
+.customers .subTut-th,
+.customers .subTut-td{
+  width: 110px;
+}
+
+.customers .topicTut-th,
+.customers .topicTut-td{
+  width: 70px;
+}
+.customers .saleTut-th,
+.customers .saleTut-td{
+  width: 60px;
+}
+.customers .btnTut-th,
+.customers .btnTut-td{
+  width: 90px;
+}
+
+.customers .btnEdit-th,
+.customers .btnEdit-td{
+  width: 50px;
+}
+
+
+
+
+
