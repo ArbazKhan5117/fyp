@@ -7,7 +7,7 @@ class Menu extends Component{
         search: 'Search',
         myProf: 'MyProfile',
         home: 'Home',
-        dashboard: 'Dashboard'
+        library: 'Library'
     };
     render(){
         
@@ -85,7 +85,7 @@ class Menu extends Component{
                             country: this.props.country
                         }
                     }}
-                   > <li className={this.props.page === this.props.dashboard ? 'selected-page' : ' '}><div className="menu-li">{this.props.dashboard}</div></li></Link>
+                   > <li className={this.props.page === this.props.library ? 'selected-page' : ' '}><div className="menu-li">{this.props.library}</div></li></Link>
                 </ul>
             </div>
         );

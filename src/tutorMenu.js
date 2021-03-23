@@ -7,7 +7,8 @@ class TutorMenu extends Component{
         search: 'Search',
         myProf: 'MyProfile',
         home: 'Home',
-        dashboard: 'Dashboard'
+        uploads: 'Uploads',
+        balance: 'Balance'
     };
     render(){
         return(
@@ -60,7 +61,7 @@ class TutorMenu extends Component{
                 }}
                     ><li className={this.props.page === this.props.post ? 'selected-page' : ' '}><div className="menu-li">{this.props.post}</div></li></Link>
                     <Link to={{
-                    pathname: '/tutordashboard',
+                    pathname: '/uploads',
                     state: {
                         username: this.props.username,
                         email: this.props.email,
@@ -74,8 +75,23 @@ class TutorMenu extends Component{
                         level: ''
                     }
                 }}
-                    ><li className={this.props.page === this.props.dashboard ? 'selected-page' : ' '}><div className="menu-li">{this.props.dashboard}</div></li></Link>
-                  
+                    ><li className={this.props.page === this.props.uploads ? 'selected-page' : ' '}><div className="menu-li">{this.props.uploads}</div></li></Link>
+                     <Link to={{
+                    pathname: '/balance',
+                    state: {
+                        username: this.props.username,
+                        email: this.props.email,
+                        subject: this.props.subject,
+                        contact: this.props.contact,
+                        profile: this.props.profile,
+                        education: this.props.education,
+                        city: this.props.city,
+                        user_id: this.props.user_id,
+                        country: this.props.country,
+                        level: ''
+                    }
+                }}
+                    ><li className={this.props.page === this.props.balance ? 'selected-page' : ' '}><div className="menu-li">{this.props.balance}</div></li></Link>
                     
                 </ul>
             </div>

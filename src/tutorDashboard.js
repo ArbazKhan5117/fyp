@@ -30,7 +30,6 @@ class TutorDashboard extends Component {
         ).then(res => {
             //console.log(res.data);
             this.setState({ video_arr: res.data });
-            console.log(res.data);
         }
         );
     }
@@ -78,13 +77,10 @@ class TutorDashboard extends Component {
         return (
             <div>
                 <Header username={username} desig="Tutor" profile={profile} />
-                <TutorMenu page="Dashboard" username={username} contact={contact} email={email} subject={subject} 
+                <TutorMenu page="Uploads" username={username} contact={contact} email={email} subject={subject} 
                 education={education} profile={profile} city={city} country={country} user_id={user_id}/>
                 <div className="Tutor-dashboard">
-                    <div className="balance-class">
-                        {this.state.video_arr.length ? <h3>Your Balance: ${this.state.video_arr[0].balance}
-                        </h3> : <h3>Your Balance: 0</h3>}
-                    </div>
+                   
                 
                 <div className="video-description-class">
                     <table className="customers">

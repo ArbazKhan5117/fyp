@@ -12,10 +12,12 @@
     
 }
 .tutorHome-class{
-    width:70%;
+    width:65%;
     border-bottom:2px solid gray;
-    background: Gainsboro;
+    background: lightgray;
     text-align:center;
-    margin-left:150px;
+    margin-left:180px;
     border-top-color: lightgoldenrodyellow ;
+    border-radius: 80px 0px;
+    height:315.5px;
 }

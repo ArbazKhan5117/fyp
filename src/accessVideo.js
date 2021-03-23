@@ -24,10 +24,10 @@ class AccessVideo extends Component {
         ).then(res => {
             console.log(res.data.data);
             //handle success
-            if (res.data.data === 'This video lecture is added in your dashboard') {
+            if (res.data.data === 'This video lecture is added in your library') {
                 alert(res.data.data);
             } else {
-                console.log('Error in inserting data in student dashboard');
+                console.log('Error in inserting data in student library');
             }
 
             console.log(res.data);

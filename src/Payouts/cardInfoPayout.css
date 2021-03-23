@@ -1,15 +1,16 @@
-.cardInfoStudent-class{
+.cardInfo-class{
     width:400px;
     padding:10px;
     padding-top:20px;
     text-align: center;
     border:2px solid gray;
-    margin-left:55px;
-    height:80px;
+    margin-left:-80px;
+    margin-top:60px;
+    height:120px;
     border-radius: 20px;
     background:white;
 }
-.cardInfoStudent-class .cardInfo-btn{
+.cardInfo-class .cardInfo-btn{
     margin-top:25px;
     width:70px;
     height:25px;
@@ -18,7 +19,7 @@
     transition:all .25s ease-in-out;
 
 }
-.cardInfoStudent-class .cardInfo-btn:hover{
+.cardInfo-class .cardInfo-btn:hover{
     background: rgb(49, 178, 221);
     color: white;
     transform:scale(1.2);
@@ -26,6 +27,12 @@
      cursor:pointer;
     transition:all .25s ease-in-out;
 }
-.cardInfoStudent-class h3{
+h4{
     text-align: center;
+    color: rgb(73, 4, 4);
 }
+h3{
+    text-align: center;
+    color: black;
+}
+

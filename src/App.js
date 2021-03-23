@@ -12,6 +12,7 @@ import TutorMyProfile from './tutorMyProfile.js';
 import StudentSearch from './studentSearch.js';
 import StudentDashboard from './studentDashboard.js';
 import TutorDashboard from './tutorDashboard.js';
+import Balance from './balance.js';
 import Slider from './slider.js';
 import Post from './post.js';
 import './App.css';
@@ -30,7 +31,8 @@ class App extends Component {
         <Route exact path="/tutormyprofile" component={TutorMyProfile} />
         <Route exact path="/studentsearch" component={StudentSearch} />
         <Route exact path="/studentdashboard" component={StudentDashboard} />
-        <Route exact path="/tutordashboard" component={TutorDashboard} />
+        <Route exact path="/uploads" component={TutorDashboard} />
+        <Route exact path="/balance" component={Balance} />
         <Route exact path="/post" component={Post} />
         <Route exact path="/" component={Slider} />
       </Switch>

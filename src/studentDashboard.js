@@ -56,16 +56,16 @@ class StudentDashboard extends Component {
         return (
             <div>
                 <Header username={username} desig="Student" profile={profile} />
-                <Menu page="Dashboard" username={username} email={email} level={level} contact={contact}
+                <Menu page="Library" username={username} email={email} level={level} contact={contact}
                     profile={profile} user_id={user_id} city={city} country={country} />
                     <table className="customers">
                         <tr>
-                            <th>Sr.No</th>
-                            <th>Level</th>
-                            <th>Subject</th>
-                            <th>Topic</th>
-                            <th>Tutor Name</th>
-                            <th>Lecture</th>
+                            <th className="sr-th">Sr.No</th>
+                            <th className="lvl-th">Level</th>
+                            <th className="sub-th">Subject</th>
+                            <th className="topic-th">Topic</th>
+                            <th className="tut-th">Tutor Name</th>
+                            <th className="btn-th">Lecture</th>
                         </tr>
                         </table>
                 <div className="studentDashboard-class">

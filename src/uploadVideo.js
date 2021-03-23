@@ -171,17 +171,17 @@ class UploadVideo extends Component {
                 <h2>Upload Video Lecture</h2>
                 
                 <form onSubmit={this.submitHandler}>
-                    <table className="customers">
+                    <table className="tut-customer">
 
                         <tr>
-                            <td><select className="form-selection login-select" value={this.state.level} onChange={this.levelHandler} required>
+                            <td className="td"><select className="form-selection login-select" value={this.state.level} onChange={this.levelHandler} required>
                                 <option value=''>Select Level of Lecture</option>
                                 <option value='9th'>9th</option>
                                 <option value='10th'>10th</option>
                                 <option value='11th'>11th</option>
                                 <option value='12th'>12th</option>
                             </select></td>
-                            <td><select className="form-selection login-select" value={this.state.subject} onChange={this.subjectHandler} required>
+                            <td className="td"><select className="form-selection login-select" value={this.state.subject} onChange={this.subjectHandler} required>
                                 <option value=''>Select Subject</option>
                                 <option value='Physics'>Physics</option>
                                 <option value='Chemistry'>Chemistry</option>
@@ -192,22 +192,22 @@ class UploadVideo extends Component {
                             </select></td>
                         </tr>
                         <tr>
-                        <td> <input type="text" value={this.state.topic} onChange={this.topicHandler} placeholder="Enter the Topic Name." className="form-input login-input" required /></td>
-                        <td><input type="number" value={this.state.price} onChange={this.priceHandler} placeholder="Enter the price in $(USD)" className="form-input login-input" required /></td>
+                        <td className="td"> <input type="text" value={this.state.topic} onChange={this.topicHandler} placeholder="Enter the Topic Name." className="form-input login-input" required /></td>
+                        <td className="td"><input type="number" value={this.state.price} onChange={this.priceHandler} placeholder="Enter the price in $(USD)" className="form-input login-input" required /></td>
                         </tr>
                         <tr>
                             <td>Description of Lecture</td>
-                            <td><textarea value={this.state.description} onChange={this.descripHandler} placeholder="Write some Description" className="form-input login-input-dr" required></textarea></td>
+                            <td className="td"><textarea value={this.state.description} onChange={this.descripHandler} placeholder="Write some Description" className="form-input login-input-dr" required></textarea></td>
                         </tr>
                         <tr>
                             <td>Select Content Video (max 30 sec)</td>
-                            <td> <input type="file" onChange={this.contentVideoHandler} placeholder="Choose video" className="form-input" required />
+                            <td className="td"> <input type="file" onChange={this.contentVideoHandler} placeholder="Choose video" className="form-input" required />
 
                             <input type="submit" value="Upload" onClick={this.uploadVideoContent} className="uploadContent-btn" /></td>
                         </tr>
                         <tr>
                             <td>Select Complete Video Lecture</td>
-                            <td> <input type="file" onChange={this.videoHandler} placeholder="Choose video" className="form-input" required />
+                            <td className="td"> <input type="file" onChange={this.videoHandler} placeholder="Choose video" className="form-input" required />
                             <input type="submit" value="Upload" onClick={this.uploadVideo} className="uploadContent-btn" /></td>
                         </tr>
                         
