@@ -18,6 +18,8 @@ class PaymentPage extends Component {
         const description = this.props.location.state.description;
         const subject = this.props.location.state.subject;
         const topic = this.props.location.state.topic;
+        const views = this.props.location.state.views;
+        const rank = this.props.location.state.rank;
         const level = this.props.location.state.level;
         const videoName = this.props.location.state.videoName;
         const videoType = this.props.location.state.videoType;
@@ -32,7 +34,7 @@ class PaymentPage extends Component {
                         <div className="absoluteVideoDiv-class">
                             <h2>Pay to get access the lecture</h2>
                             <StripeContainer price={price} video_id={video_id} videoName={videoName}
-                             videoType={videoType} student_id={student_id} tutor={tutor}/>
+                                videoType={videoType} student_id={student_id} tutor={tutor} />
                         </div>
                         <h2>Video Lecture</h2>
                         <video width="540" height="350" controls>
@@ -44,37 +46,46 @@ class PaymentPage extends Component {
                             <img src={'/uploads/' + tutor_profile}></img>
 
                         </div>
-                        <h4>Tutor: {tutor}</h4>
-                        <table className="customers">
-                            <tr>
-                                <td>Level</td>
-                                <td>{level}</td>
-                            </tr>
-                            <tr>
-                                <td>Subject</td>
-                                <td>{subject}</td>
-                            </tr>
-                            <tr>
-                                <td>Topic</td>
-                                <td>{topic}</td>
-                            </tr>
-                            <tr>
-                                <td>Rating</td>
-                                <td>{lec_rating}</td>
-                            </tr>
-                            <tr>
-                                <td>Description</td>
-                                <td>{description}</td>
-                            </tr>
-                            <tr>
-                                <td>Price</td>
-                                <td>{price}</td>
-                            </tr>
-                        </table>
+                        {rank === null ? <h4>Tutor: {tutor}</h4> : <h4>{tutor} is tutor of rank {Math.floor(rank)}</h4>}
 
+                        <div className="table">
+                            <table className="customers">
+                                <tr>
+                                    <td>Level</td>
+                                    <td>{level}</td>
+                                </tr>
+                                <tr>
+                                    <td>Subject</td>
+                                    <td>{subject}</td>
+                                </tr>
+                                <tr>
+                                    <td>Topic</td>
+                                    <td>{topic}</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Price</td>
+                                    <td>{price}</td>
+                                </tr>
+                                <tr>
+                                    <td>Views</td>
+                                    <td>{views}</td>
+                                </tr>
+                                {lec_rating === null ? '' :
+                                    <tr>
+                                        <td>Rating</td>
+                                        <td>{lec_rating}</td>
+                                    </tr>
+                                }
+                                <tr>
+                                    <td>Description</td>
+                                    <td>{description}</td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
-                
+
                 <Footer />
             </div>
         );

@@ -1,0 +1,35 @@
+.accessVideoReview-class{
+    position: absolute;
+    z-index: 200;
+    margin-top: -200px;
+    width:200px;
+    height:50px;
+    background:rgb(158, 155, 155);
+    display: 'flex';
+    margin-top: -100px;
+    margin-left:120px;
+    padding-left:70px;
+    padding-top:30px;
+    padding-bottom:10px;
+    border-radius: 50px;
+
+}
+.studentDashboardReview-class{
+    position: absolute;
+    z-index: 200;
+    width:200px;
+    height:50px;
+    background:rgb(158, 155, 155);
+    display: 'flex';
+    margin-top: -250px;
+    margin-left:380px;
+    padding-left:70px;
+    padding-top:30px;
+    padding-bottom:10px;
+    border-radius: 50px;
+
+}
+.accessVideo-class h2,
+.studentDashboardReview-class h2{
+    color: white;
+}

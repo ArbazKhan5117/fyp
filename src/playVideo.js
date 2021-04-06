@@ -8,6 +8,7 @@ class PlayVideo extends Component{
     render(){
         return(
             <div className='playVideo-class'>
+            
                 {this.props.type === 'video' ? 
                 <ReactPlayer
                     url={[{ src: '/VideoLectures/' + this.props.videoName, type: this.props.videoType }]} // video location

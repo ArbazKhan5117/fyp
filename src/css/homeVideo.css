@@ -1,6 +1,6 @@
 .homeVideo-class{
     width:240px;
-    height:160px;
+    height:170px;
     border-radius: 20px;
     margin-left:32px;
     margin-top:10px;
@@ -11,6 +11,10 @@
 .homeVideo-class p{
     font-size: 13px;
     margin-top:5px;
+}
+.homeVideo-class p .topic-class{
+    color: rgb(99, 3, 3);
+    font-weight: bolder;
 }
 .homeVideo-class p .price-p{
     font-weight: bold;

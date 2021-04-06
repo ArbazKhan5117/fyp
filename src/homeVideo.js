@@ -38,6 +38,7 @@ class HomeVideo extends Component {
     getLectures = (order) => {
         const fd = new FormData();
         fd.append('level', this.props.level);
+        fd.append('student_id', this.props.user_id);
         fd.append('order', order);
         var headers = {
             'Content-Type': 'application/json;charset=UTF-8',
@@ -101,6 +102,7 @@ class HomeVideo extends Component {
             fd.append('tutor', this.state.searchTutor);
             fd.append('order', this.state.sortBy);
             fd.append('decision', this.state.searchM);
+            fd.append('student_id', this.props.user_id);
 
             var headers = {
                 'Content-Type': 'application/json;charset=UTF-8',
@@ -166,10 +168,12 @@ class HomeVideo extends Component {
                                         video_id: i.video_id,
                                         topic: i.topic,
                                         price: i.price,
+                                        views: i.views,
                                         description: i.description,
                                         videoType: i.videoType,
                                         videoName: i.videoName,
                                         tutor: i.tutor,
+                                        rank: i.rank,
                                         tutor_profile: i.tutor_profile,
                                         lec_rating: i.rating,
                                         username: this.props.username,
@@ -182,7 +186,7 @@ class HomeVideo extends Component {
                                         <source src={'/ContentVideo/' + i.contentVideoName} type={i.contentVideoType} />
                                     </video>
                                 </Link>
-                                <p>{this.props.level}, {i.subject}, topic:"{i.topic}" by {i.tutor}, rating:({i.rating}), views:'{i.views}'and Price: <spam className="price-p">${i.price}</spam></p>
+                                <p>{i.subject}, topic:"<spam className="topic-class">{i.topic}</spam>" by {i.tutor}, {i.rating === null ? '' : `rating:${i.rating},`} views:'{i.views}' and Price: <spam className="price-p">${i.price}</spam></p>
 
                             </div>
                         );

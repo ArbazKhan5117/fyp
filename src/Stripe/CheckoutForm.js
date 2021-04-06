@@ -54,7 +54,7 @@ export const CheckoutForm = (props) => {
     {processing === 1 ? <h3>Payment in Processing...</h3> : ''}
     {count === 1 ? 
     <AccessVideo price={props.price} videoType={props.videoType} videoName={props.videoName} 
-    video_id={props.video_id} student_id={props.student_id} tutor={props.tutor}/> : ''
+    video_id={props.video_id} student_id={props.student_id} tutor={props.tutor} reviewStatus='no' /> : ''
   }
   </div>
   );

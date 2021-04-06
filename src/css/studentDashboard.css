@@ -88,6 +88,54 @@
     border:2px rgb(69, 89, 95) solid;
     cursor: pointer;
 }
+
+.studentDashboard-class-button-bk{
+  position: absolute;
+  z-index: 201;
+  margin-top: -150px;
+  margin-left:480px;
+  width:70px;
+  height:25px;
+  color: rgb(212, 212, 236);
+  background-color: rgb(13, 14, 13);
+  font-size:15px;
+  border:2px solid white;
+  border-radius:15px;
+  transition:all .25s ease-in-out;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+}
+.studentDashboard-class-button-bk:hover{
+  background: rgb(13, 14, 13);
+  color: white;
+  transform:scale(1.2);
+  transition:all .25s ease-in-out;
+  cursor:pointer;
+}
+.studentDashboard-class-button{
+  position: absolute;
+  z-index: 101;
+  margin-top: -32px;
+  margin-left:400px;
+  width:200px;
+  height:27px;
+  color: darkblue;
+  background-color: rgb(187, 226, 47);
+  font-size:15px;
+  border-radius:20px;
+  transition:all .25s ease-in-out;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+}
+
+.studentDashboard-class-button:hover{
+  background: rgb(187, 226, 47);
+  color: blue;
+  transform:scale(1.2);
+  transition:all .25s ease-in-out;
+  cursor:pointer;
+}
+*/
 /*------------------------TutuorDashboard-CSS starts--------------------------*/
 .video-description-class{
   width: 100%;

@@ -5,6 +5,52 @@
     
     
 }
+.accessVideo-class-button-bk{
+    position: absolute;
+    z-index: 101;
+    margin-top: 0px;
+    margin-left:220px;
+    width:70px;
+    height:25px;
+    color: rgb(212, 212, 236);
+    background-color: rgb(13, 14, 13);
+    font-size:15px;
+    border-radius:15px;
+    transition:all .25s ease-in-out;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    border:2px solid white;
+}
+.accessVideo-class-button-bk:hover{
+    background: rgb(13, 14, 13);
+    color: white;
+    transform:scale(1.2);
+    transition:all .25s ease-in-out;
+    cursor:pointer;
+}
+.accessVideo-class-button{
+    position: absolute;
+    z-index: 101;
+    margin-top: 116px;
+    margin-left:170px;
+    width:200px;
+    height:30px;
+    color: darkblue;
+    background-color: rgb(187, 226, 47);
+    font-size:15px;
+    border-radius:20px;
+    transition:all .25s ease-in-out;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+}
+
+.accessVideo-class-button:hover{
+    background: rgb(187, 226, 47);
+    color: blue;
+    transform:scale(1.2);
+    transition:all .25s ease-in-out;
+    cursor:pointer;
+}
 .playVideo-class{
     position:absolute;
     z-index: 150;
