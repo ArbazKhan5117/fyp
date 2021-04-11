@@ -23,7 +23,8 @@ class StudentMyProfile extends Component {
             upload: 'yes',
             cityEdit: '',
             countryEdit: '',
-            edited: 'no'
+            edited: 'no',
+            level_arr: []
         }
         this.passwordHandler = this.passwordHandler.bind(this);
         this.passSubmitHandler = this.passSubmitHandler.bind(this);
@@ -36,6 +37,19 @@ class StudentMyProfile extends Component {
         this.uploadProfile = this.uploadProfile.bind(this);
         this.profileHandler = this.profileHandler.bind(this);
         this.submitEditHandler = this.submitEditHandler.bind(this);
+        this.fetchLevelSubject();
+    }
+    fetchLevelSubject = () => {
+
+        const fd = new FormData();
+        var headers = {
+            'Content-Type': 'application/json;charset=UTF-8',
+            "Access-Control-Allow-Origin": "*"
+        }
+        axios.post('http://localhost/fyp-backend/signup/fetchLevelSubject.php', fd, headers
+        ).then(response => {
+            this.setState({ level_arr: response.data[0].level });
+        });
     }
     passwordHandler = (event) => {
         event.preventDefault();
@@ -190,8 +204,8 @@ class StudentMyProfile extends Component {
 
         }
         );
-    
-}
+
+    }
 
     render() {
         let username, email, level, contact, profile, user_id, city, country;
@@ -275,49 +289,49 @@ class StudentMyProfile extends Component {
                                 <input type="submit" value="Submit" className="submit-btn" />
                             </form>
                             :
-                            <form onSubmit={this.submitEditHandler}>
+                            <form onSubmit={this.submitEditHandler} className="edit_form">
 
                                 <label className="level-label" >Profile Image:</label>
                                 <input type="file" name="profile" className="profile-input" onChange={this.profileHandler} />
                                 {this.state.upload === 'yes' ? '' : <button className="profile-label" onClick={this.uploadProfile}>Upload Profile:</button>}<br />
-                                <table className="customers">
-                               
+                                
+                                <table className="customers-edit">
+
                                     <tr>
                                         <td>Username:</td>
-                                        <td><input type="text" value={this.state.nameEdit} onChange={this.nameEditHandler} placeholder="Username" className="login-input"/></td>
-                                    </tr>
-                                    <tr>
+                                        <td><input type="text" value={this.state.nameEdit} onChange={this.nameEditHandler} placeholder="Username" className="login-input chng" /></td>
+                                    
                                         <td>Email</td>
-                                        <td><input type="email" value={this.state.emailEdit} onChange={this.emailEditHandler} placeholder="Email Address" className="login-input" /></td>
+                                        <td><input type="email" value={this.state.emailEdit} onChange={this.emailEditHandler} placeholder="Email Address" className="login-input chng" /></td>
+                                    </tr>
+        
+                                    <tr>
+                                        <td>Country</td>
+                                        <td><input type="text" value={this.state.countryEdit} onChange={this.countryEditHandler} placeholder="Country Name" className="login-input chng" /></td>
+                        
+                                        <td>City</td>
+                                        <td><input type="text" value={this.state.cityEdit} onChange={this.cityEditHandler} placeholder="City Name" className="login-input chng" /></td>
                                     </tr>
                                     <tr>
                                         <td>Contact</td>
-                                        <td><input type="number" value={this.state.contactEdit} onChange={this.contactEditHandler} placeholder="Contact" className="login-input" /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Country</td>
-                                        <td><input type="text" value={this.state.countryEdit} onChange={this.countryEditHandler} placeholder="Country Name" className="login-input" /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>City</td>
-                                        <td><input type="text" value={this.state.cityEdit} onChange={this.cityEditHandler} placeholder="City Name" className="login-input" /></td>
-                                    </tr>
-                                    <tr>
+                                        <td><input type="number" value={this.state.contactEdit} onChange={this.contactEditHandler} placeholder="Contact" className="login-input chng" /></td>
+                                    
                                         <td>Level</td>
-                                        <td><select value={this.state.levelEdit} onChange={this.levelEditHandler} className="signup-select">
-                                            <option value='9th'>9th</option>
-                                            <option value='10th'>10th</option>
-                                            <option value='11th'>11th</option>
-                                            <option value='12th'>12th</option>
+                                        <td><select value={this.state.levelEdit} onChange={this.levelEditHandler} className="signup-select chng">
+                                            {this.state.level_arr.map(i => {
+                                                return (
+                                                    <option value={i.level}>{i.level}</option>
+                                                );
+                                            })}
                                         </select><br /></td>
                                     </tr>
-                                    
+
                                 </table>
 
+                    
 
 
-
-                                <input type="submit" value="Submit" className="submit-btn" />
+                                <input type="submit" value="Submit" className="submit-btn submit-edit" />
                             </form>
 
 

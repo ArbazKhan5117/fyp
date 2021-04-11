@@ -12,20 +12,21 @@
 .present-info{
     width:30%;
     text-align:left;
-    height:430px;
+    height:315px;
 
 }
 .present-info .profile{
-    width:100px;
-    height:100px;
+    width:80px;
+    height:80px;
     background: white;
-    margin:20px auto;
+    margin:18px auto;
     border-radius: 10px;
+    margin-bottom:5px;
 }
 .present-info .profile img{
     width:100%;
     height:100%;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 .present-info h4{
     padding-left:15px;
@@ -41,11 +42,12 @@
 }
 .edit-info{
     width:69.2%;
-    border-left:2px solid gray;
-    
+    height:315px;
 }
+
 .edit-info h2{
     padding-top:0px;
+    
 }
 .edit-info .profile-label,
 .edit-info .level-label{
@@ -65,16 +67,25 @@
     font-family: "Times New Roman", Times, serif;
     font-weight: bold;
 }
+.edit-info .submit-edit{
+    margin-top:15px;
+}
 .profile-label{
     width:120px;
+    margin-left:10px;
+    transition:all .35s ease-in-out;
+    margin-bottom: 0px;
+    margin-top:0px;
 }
 .profile-label:hover,
 .submit-btn:hover{
     background: dodgerblue;
     color: white;
-    transform:scale(1.3);
-    border:2px white solid;
-    transition:all .25s ease-in-out;
+    transition:all .35s ease-in-out;
+    transform:scale(1.09);
+    border:2px Gainsboro solid;
+    cursor: pointer;
+    
 }
 .edit-info .left-input{
     margin-right:100px;
@@ -87,16 +98,39 @@
   }
   
   .customers td, .customers th {
-    border: 1px solid #ddd;
-    padding: 8px;
+    padding: 0px;
   }
   
   .customers tr:nth-child(even){background-color: #f2f2f2;}
   
-  .customers tr:hover {background-color: lightskyblue;}
-  
+  .edit info .customers .chng:hover{
+      background:rgb(5, 65, 85);
+  }
   .customers th {
-    padding-top: 12px;
+    padding-top: 0px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+  }
+  .customers-edit {
+    font-family: "Times New Roman", Times, serif;
+    border-collapse: collapse;
+    width: 100%;
+    font-weight: bold;
+  }
+  
+  .customers-edit td, .customers-edit th {
+    padding: 6px;
+  }
+  
+  .customers-edit tr:nth-child(even){background-color: #f2f2f2;}
+  
+  .edit-info .customers-edit .chng:hover{
+      background:rgb(174, 227, 245);
+  }
+  .customers-edit th {
+    padding-top: 0px;
     padding-bottom: 12px;
     text-align: left;
     background-color: #4CAF50;
@@ -127,6 +161,68 @@
 }
 .edit-info .signup-select{
     border-radius: 5px;
-    height:35px;
+    height:30px;
     margin-right: 48px;
+    transition:all .25s ease-in-out;
+    box-shadow: -8px 10px 5px 0px rgba(136,107,107,0.75);
+-webkit-box-shadow: -8px 10px 5px 0px rgba(136,107,107,0.75);
+-moz-box-shadow: -8px 10px 5px 0px rgba(136,107,107,0.75);
 }
+.edit-info .signup-select:hover{
+    transform:scale(1.09);
+    transition:all .25s ease-in-out;
+}
+
+
+.edit-info .edit_form{
+    padding-top: 5px;
+    margin-top: 5px;
+}
+
+.customers-tutorInfo {
+    font-family: "Times New Roman", Times, serif;
+    border-collapse: collapse;
+    width: 100%;
+    font-weight: bold;
+  }
+  
+  .customers-tutorInfo td, .customers-tutorInfo th {
+    padding: 6px;
+  }
+  
+  .customers-tutorInfo tr:nth-child(even){background-color: #f2f2f2;}
+  .customers-tutorInfo tr:hover {background-color: lightskyblue;}
+  .customers-tutorInfo th {
+    padding-top: 0px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+  }
+  .edit-info .edit-info-table{
+      height:160px;
+      overflow: scroll;
+    overflow-x: hidden;
+  }
+  .customers-edit-tutor {
+    font-family: "Times New Roman", Times, serif;
+    border-collapse: collapse;
+    width: 100%;
+    font-weight: bold;
+  }
+  
+  .customers-edit-tutor td, .customers-tutorInfo th {
+    padding: 3px;
+  }
+  
+  .customers-edit-tutor tr:nth-child(even){background-color: #f2f2f2;}
+  .edit-info .customers-edit-tutor .chng:hover{
+    background:rgb(174, 227, 245);
+}
+  .customers-edit-tutor th {
+    padding-top: 0px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+  }

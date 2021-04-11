@@ -93,4 +93,7 @@
     background-color: #4CAF50;
     color: white;
   }
+  .edit info .customers .chng:hover{
+    background:rgb(5, 65, 85);
+}
 

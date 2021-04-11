@@ -89,6 +89,7 @@ class TutorDashboard extends Component {
                             <th className="lvlTut-th">Level</th>
                             <th className="subTut-th">Subject</th>
                             <th className="topicTut-th">Topic</th>
+                            <th className="ratingTut-th">Rating</th>
                             <th className="saleTut-th">No. Sale</th>
                             <th className="btnTut-th">Cont_Video</th>
                             <th className="btnTut-th">Lec_Video</th>
@@ -107,6 +108,7 @@ class TutorDashboard extends Component {
                                     <td className="lvlTut-td">{i.level}</td>
                                     <td className="subTut-td">{i.subject}</td>
                                     <td className="topicTut-td">{i.topic}</td>
+                                    <td className="ratingTut-td">{i.rating}</td>
                                     <td className="saleTut-td">{i.sale}</td>
                                     <td className="btnTut-td"><button className="playTut-btn" onClick={()=> this.playContent(key)}>Play</button></td>
                                     <td className="btnTut-td"><button className="playTut-btn" onClick={()=> this.playVideo(key)}>Play</button></td>

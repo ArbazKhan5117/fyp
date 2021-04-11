@@ -137,9 +137,6 @@
 }
 */
 /*------------------------TutuorDashboard-CSS starts--------------------------*/
-.video-description-class{
-  width: 100%;
-}
 .Tutor-dashboard{
   width:100%;
   background: Gainsboro;
@@ -148,6 +145,11 @@
     align-items: center;
     flex: 1;
 }
+.video-description-class{
+  width: 100%;
+  background: #4CAF50;
+}
+
 
 
 .customers .srTut-th{
@@ -170,8 +172,12 @@
 
 .customers .topicTut-th,
 .customers .topicTut-td{
-  width: 370px;
+  width: 340px;
   text-align: left;
+}
+.customers .ratingTut-th,
+.customers .ratingTut-td{
+  width: 55px;
 }
 .customers .saleTut-th,
 .customers .saleTut-td{
@@ -179,9 +185,8 @@
 }
 .customers .btnTut-th,
 .customers .btnTut-td{
-  width: 90px;
+  width: 80px;
 }
-
 .customers .btnEdit-th,
 .customers .btnEdit-td{
   width: 50px;

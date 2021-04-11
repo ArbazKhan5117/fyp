@@ -14,11 +14,25 @@ class StudentSearch extends Component {
             country: '',
             subject: 'Physics',
             tutors: [],
+            subject_arr: [],
             valid: ''
         }
 
         this.subjectHandler = this.subjectHandler.bind(this);
         this.findAddress = this.findAddress.bind(this);
+        this.fetchLevelSubject();
+    }
+    fetchLevelSubject = () => {
+
+        const fd = new FormData();
+        var headers = {
+            'Content-Type': 'application/json;charset=UTF-8',
+            "Access-Control-Allow-Origin": "*"
+        }
+        axios.post('http://localhost/fyp-backend/signup/fetchLevelSubject.php', fd, headers
+        ).then(response => {
+            this.setState({ subject_arr: response.data[0].subject });
+        });
     }
     subjectHandler = (event) => {
         event.preventDefault();
@@ -60,19 +74,18 @@ class StudentSearch extends Component {
             <div >
                 <Header username={username} desig="Student" profile={profile} />
                 <Menu page="Search" username={username} email={email} level={level} contact={contact}
-                 profile={profile} user_id={user_id} city={city} country={country}/>
+                    profile={profile} user_id={user_id} city={city} country={country} />
                 <div className="studentSearch-class">
                     <div className="search-class">
                         <h2>Find your Home Tutor</h2>
                         <form>
                             <label className="subject-label" >Select Subject:</label>
                             <select className="subject-opt" value={this.state.subject} onChange={this.subjectHandler}>
-                                <option value='Physics'>Physics</option>
-                                <option value='Chemistry'>Chemistry</option>
-                                <option value='Biology'>Biology</option>
-                                <option value='Mathematics'>Mathematics</option>
-                                <option value='Computer'>Computer</option>
-                                <option value='English'>English</option>
+                                {this.state.subject_arr.map(i => {
+                                    return (
+                                        <option value={i.subject}>{i.subject}</option>
+                                    );
+                                })}
                             </select><br /><br />
 
                             <input type="submit" value="Search" onClick={this.findAddress} className="submit-bttn" />
@@ -88,7 +101,7 @@ class StudentSearch extends Component {
                                         <th>Profile</th>
                                         <th>Name</th>
                                         <th>Subject</th>
-                                    
+
                                         <th>City</th>
                                         <th>Last Degree</th>
                                         <th>Contact</th>
@@ -96,10 +109,10 @@ class StudentSearch extends Component {
                                     {this.state.tutors.map(i => {
                                         return (
                                             <tr>
-                                                <td><img src={'/uploads/'+ i.profile}/></td>
+                                                <td><img src={'/uploads/' + i.profile} /></td>
                                                 <td>{i.name}</td>
                                                 <td>{this.state.subject}</td>
-                                                
+
                                                 <td>{i.city}</td>
                                                 <td>{i.education}</td>
                                                 <td>{i.contact}</td>

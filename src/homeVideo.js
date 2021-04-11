@@ -25,7 +25,7 @@ class HomeVideo extends Component {
             searchTutor: '',
             topic_arr: [],
             topic_arr_index: 0,
-            
+            subject_arr: [],
             sorted_arr: []
         }
         this.getLectures('rating');
@@ -34,6 +34,19 @@ class HomeVideo extends Component {
         this.tutorHandler = this.tutorHandler.bind(this);
         this.searchLecture = this.searchLecture.bind(this);
         this.sortingHandler = this.sortingHandler.bind(this);
+        this.fetchLevelSubject();
+    }
+    fetchLevelSubject = () => {
+
+        const fd = new FormData();
+        var headers = {
+            'Content-Type': 'application/json;charset=UTF-8',
+            "Access-Control-Allow-Origin": "*"
+        }
+        axios.post('http://localhost/fyp-backend/signup/fetchLevelSubject.php', fd, headers
+        ).then(response => {
+            this.setState({ subject_arr: response.data[0].subject });
+        });
     }
     getLectures = (order) => {
         const fd = new FormData();
@@ -60,9 +73,9 @@ class HomeVideo extends Component {
         event.preventDefault();
         this.setState({ searchTopic: event.target.value });
         this.setState({ topic_arr: event.target.value.split(" ") });
-        if(this.state.searchTopic && this.state.searchTutor){
+        if (this.state.searchTopic && this.state.searchTutor) {
             this.setState({ searchM: 'sub-topic-tutor' });
-        }else{
+        } else {
             this.setState({ searchM: 'sub-topic' });
         }
 
@@ -70,9 +83,9 @@ class HomeVideo extends Component {
     tutorHandler = (event) => {
         event.preventDefault();
         this.setState({ searchTutor: event.target.value });
-        if(this.state.searchTutor && this.state.searchTopic){
+        if (this.state.searchTutor && this.state.searchTopic) {
             this.setState({ searchM: 'sub-topic-tutor' });
-        }else{
+        } else {
             this.setState({ searchM: 'sub-tutor' });
         }
 
@@ -80,7 +93,7 @@ class HomeVideo extends Component {
     sortingHandler = (event) => {
         event.preventDefault();
         this.setState({ sortBy: event.target.value });
-        let order=event.target.value;
+        let order = event.target.value;
         this.getLectures(order);
     }
     searchLecture = (event) => {
@@ -94,7 +107,7 @@ class HomeVideo extends Component {
                 }
             })
             console.log(this.state.sortBy);
-            
+
             const fd = new FormData();
             fd.append('level', this.props.level);
             fd.append('subject', this.state.searchSubject);
@@ -138,18 +151,17 @@ class HomeVideo extends Component {
                         <option value='rating'>Rating</option>
                         <option value='price'>Price</option>
                         <option value='sale_no'>Views</option>
-    
+
                     </select><br />
                     <h2>Search Lecture</h2>
                     <form onSubmit={this.searchLecture}>
                         <select className="form-selection login-select" value={this.state.searchSubject} onChange={this.subjectHandler} required>
                             <option value=''>Select Subject</option>
-                            <option value='Physics'>Physics</option>
-                            <option value='Chemistry'>Chemistry</option>
-                            <option value='Mathematics'>Mathematics</option>
-                            <option value='Biology'>Biology</option>
-                            <option value='English'>English</option>
-                            <option value='Computer'>Computer</option>
+                            {this.state.subject_arr.map(i => {
+                                return (
+                                    <option value={i.subject}>{i.subject}</option>
+                                );
+                            })}
                         </select><br />
                         <input type="text" value={this.state.searchTopic} onChange={this.topicHandler} placeholder="Topic Name. (Optional)" className="form-input login-input" /><br />
                         <input type="text" value={this.state.searchTutor} onChange={this.tutorHandler} placeholder="Tutor Name. (Optional)" className="form-input login-input" /><br />

@@ -17,8 +17,9 @@ class UploadVideo extends Component {
             videoUploading: 'no',
             video: '',
             videoType: '',
-            videoName: ''
-
+            videoName: '',
+            subject_arr: [],
+            level_arr: []
         }
         this.levelHandler = this.levelHandler.bind(this);
         this.subjectHandler = this.subjectHandler.bind(this);
@@ -30,6 +31,7 @@ class UploadVideo extends Component {
         this.submitHandler = this.submitHandler.bind(this);
         this.uploadVideoContent = this.uploadVideoContent.bind(this);
         this.uploadVideo = this.uploadVideo.bind(this);
+        this.fetchLevelSubject();
     }
     levelHandler = (event) => {
         event.preventDefault();
@@ -56,6 +58,19 @@ class UploadVideo extends Component {
                 event.target.files[0].type
         });
     }
+    fetchLevelSubject = () => {
+        
+            const fd = new FormData();
+            var headers = {
+                'Content-Type': 'application/json;charset=UTF-8',
+                "Access-Control-Allow-Origin": "*"
+            }
+            axios.post('http://localhost/fyp-backend/signup/fetchLevelSubject.php', fd, headers
+            ).then(response => {
+                this.setState({level_arr: response.data[0].level, subject_arr: response.data[0].subject});
+            });
+        }
+    
     uploadVideoContent = (event) => {
         event.preventDefault();
         if (this.state.contentVideo) {
@@ -72,13 +87,10 @@ class UploadVideo extends Component {
                 //handle success
                 alert(response.data);
                 self.setState({ uploading: 'no' });
-                console.log(response.data);
 
             })
                 .catch(function (response) {
                     //handle error
-                    console.log(response);
-                    console.log("sorry");
                 });
         } else {
             alert('Please select a contentvideo from your device');
@@ -110,13 +122,12 @@ class UploadVideo extends Component {
                 //handle success
                 alert(response.data);
                 self.setState({ videoUploading: 'no' });
-                console.log(response.data);
+        
 
             })
                 .catch(function (response) {
                     //handle error
-                    console.log(response);
-                    console.log("sorry");
+                    
                 });
         } else {
             alert('Please select a video lecture from your device');
@@ -176,19 +187,19 @@ class UploadVideo extends Component {
                         <tr>
                             <td className="td"><select className="form-selection login-select" value={this.state.level} onChange={this.levelHandler} required>
                                 <option value=''>Select Level of Lecture</option>
-                                <option value='9th'>9th</option>
-                                <option value='10th'>10th</option>
-                                <option value='11th'>11th</option>
-                                <option value='12th'>12th</option>
+                                {this.state.level_arr.map(i=>{
+                                    return(
+                                        <option value={i.level}>{i.level}</option>
+                                    );
+                                })}
                             </select></td>
                             <td className="td"><select className="form-selection login-select" value={this.state.subject} onChange={this.subjectHandler} required>
                                 <option value=''>Select Subject</option>
-                                <option value='Physics'>Physics</option>
-                                <option value='Chemistry'>Chemistry</option>
-                                <option value='Mathematics'>Mathematics</option>
-                                <option value='Biology'>Biology</option>
-                                <option value='English'>English</option>
-                                <option value='Computer'>Computer</option>
+                                {this.state.subject_arr.map(i=>{
+                                    return(
+                                        <option value={i.subject}>{i.subject}</option>
+                                    );
+                                })}
                             </select></td>
                         </tr>
                         <tr>

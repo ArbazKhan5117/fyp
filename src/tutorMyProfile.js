@@ -24,7 +24,8 @@ class TutorMyProfile extends Component {
             profileName: '',
             finalName: '',
             upload: 'yes',
-            edited: 'no'
+            edited: 'no',
+            subject_arr: []
         }
         this.passwordHandler = this.passwordHandler.bind(this);
         this.passSubmitHandler = this.passSubmitHandler.bind(this);
@@ -38,6 +39,7 @@ class TutorMyProfile extends Component {
         this.countryEditHandler = this.countryEditHandler.bind(this);
         this.educationEditHandler = this.educationEditHandler.bind(this);
         this.submitEditHandler = this.submitEditHandler.bind(this);
+        this.fetchLevelSubject();
     }
     passwordHandler = (event) => {
         event.preventDefault();
@@ -74,6 +76,18 @@ class TutorMyProfile extends Component {
     subjectEditHandler = (event) => {
         event.preventDefault();
         this.setState({ subjectEdit: event.target.value });
+    }
+    fetchLevelSubject = () => {
+
+        const fd = new FormData();
+        var headers = {
+            'Content-Type': 'application/json;charset=UTF-8',
+            "Access-Control-Allow-Origin": "*"
+        }
+        axios.post('http://localhost/fyp-backend/signup/fetchLevelSubject.php', fd, headers
+        ).then(response => {
+            this.setState({ subject_arr: response.data[0].subject });
+        });
     }
     profileHandler = (event) => {
         event.preventDefault();
@@ -198,8 +212,8 @@ class TutorMyProfile extends Component {
 
         }
         );
-    
-}
+
+    }
 
     render() {
         let username, email, education, contact, profile, subject, city, country, user_id;
@@ -244,7 +258,7 @@ class TutorMyProfile extends Component {
                         <div className="profile">
                             <img src={'/uploads/' + profile}></img>
                         </div>
-                        <table className="customers">
+                        <table className="customers-tutorInfo">
                             <tr>
                                 <td>Name</td>
                                 <td>{username}</td>
@@ -286,53 +300,52 @@ class TutorMyProfile extends Component {
                                 <input type="submit" value="Submit" className="submit-btn" />
                             </form>
                             :
-                            <form onSubmit={this.submitEditHandler}>
+                            <form onSubmit={this.submitEditHandler} className="edit_form">
 
                                 <label className="level-label" >Profile Image:</label>
                                 <input type="file" name="profile" className="profile-input" onChange={this.profileHandler} />
                                 {this.state.upload === 'yes' ? '' : <button className="profile-label" onClick={this.uploadProfile}>Upload Profile:</button>}<br />
-                                <table className="customers">
+                                
+                                <table className="customers-edit-tutor">
                                     <tr>
                                         <td>Username</td>
-                                        <td><input type="text" value={this.state.nameEdit} onChange={this.nameEditHandler} placeholder="Username" className="login-input" /></td>
-                                    </tr>
-                                    <tr>
+                                        <td><input type="text" value={this.state.nameEdit} onChange={this.nameEditHandler} placeholder="Username" className="login-input chng" /></td>
+                                    
                                         <td>Email</td>
-                                        <td> <input type="email" value={this.state.emailEdit} onChange={this.emailEditHandler} placeholder="Email Address" className="login-input" /></td>
+                                        <td> <input type="email" value={this.state.emailEdit} onChange={this.emailEditHandler} placeholder="Email Address" className="login-input chng" /></td>
                                     </tr>
                                     <tr>
                                         <td>Contact</td>
-                                        <td><input type="number" value={this.state.contactEdit} onChange={this.contactEditHandler} placeholder="Contact" className="login-input" /></td>
-                                    </tr>
-                                    <tr>
+                                        <td><input type="number" value={this.state.contactEdit} onChange={this.contactEditHandler} placeholder="Contact" className="login-input chng" /></td>
+                                    
                                         <td>Qualification</td>
-                                        <td><input type="text" value={this.state.educationEdit} onChange={this.educationEditHandler} placeholder="Last Degree" className="login-input" /></td>
+                                        <td><input type="text" value={this.state.educationEdit} onChange={this.educationEditHandler} placeholder="Last Degree" className="login-input chng" /></td>
                                     </tr>
                                     <tr>
                                         <td>Country</td>
-                                        <td><input type="text" value={this.state.countryEdit} onChange={this.countryEditHandler} placeholder="Country Name" className="login-input" /></td>
-                                    </tr>
-                                    <tr>
+                                        <td><input type="text" value={this.state.countryEdit} onChange={this.countryEditHandler} placeholder="Country Name" className="login-input chng" /></td>
+                            
                                         <td>City</td>
-                                        <td><input type="text" value={this.state.cityEdit} onChange={this.cityEditHandler} placeholder="City Name" className="login-input" /></td>
+                                        <td><input type="text" value={this.state.cityEdit} onChange={this.cityEditHandler} placeholder="City Name" className="login-input chng" /></td>
                                     </tr>
                                     <tr>
-                                        <td>Subject</td>
-                                        <td><select value={this.state.subjectEdit} onChange={this.subjectEditHandler} className="signup-select">
-                                            <option value='Physics'>Physics</option>
-                                            <option value='Chemistry'>Chemistry</option>
-                                            <option value='Biology'>Biology</option>
-                                            <option value='Mathematics'>Mathematics</option>
-                                            <option value='Computer'>Computer</option>
-                                            <option value='English'>English</option>
+                                        <td></td>
+                                        <td className="subject-edit-label">Subject</td>
+                                        <td><select value={this.state.subjectEdit} onChange={this.subjectEditHandler} className="signup-select chng">
+                                            {this.state.subject_arr.map(i => {
+                                                return (
+                                                    <option value={i.subject}>{i.subject}</option>
+                                                );
+                                            })}
                                         </select></td>
+                                        <td></td>
                                     </tr>
                                 </table>
+                        
 
 
 
-
-                                <input type="submit" value="Submit" className="submit-btn" />
+                                <input type="submit" value="Submit" className="submit-btn submit-edit" />
                             </form>
 
 
