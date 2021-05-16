@@ -18,7 +18,7 @@ class StripeContainer extends Component {
   return (
     <Elements stripe={stripeTestPromise}>
      
-      <CheckoutForm balance={this.props.balance} user_id={this.props.user_id} />
+      <CheckoutForm balance={this.props.balance} user_id={this.props.user_id} updation={this.props.updation}/>
     </Elements>
   );
 }

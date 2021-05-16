@@ -12,9 +12,12 @@ import TutorMyProfile from './tutorMyProfile.js';
 import StudentSearch from './studentSearch.js';
 import StudentDashboard from './studentDashboard.js';
 import TutorDashboard from './tutorDashboard.js';
+import AdminLogin from './adminLogin.js';
 import Balance from './balance.js';
 import Slider from './slider.js';
 import Post from './post.js';
+import AdminHome from './adminHome';
+import AdminForgetPass from './adminForgetPass.js';
 import './App.css';
 class App extends Component {
   render() {
@@ -34,6 +37,9 @@ class App extends Component {
         <Route exact path="/uploads" component={TutorDashboard} />
         <Route exact path="/balance" component={Balance} />
         <Route exact path="/post" component={Post} />
+        <Route exact path="/adminlogin" component={AdminLogin} />
+        <Route exact path="/adminhome" component={AdminHome} />
+        <Route exact path="/adminforgetpass" component={AdminForgetPass} />
         <Route exact path="/" component={Slider} />
       </Switch>
       </BrowserRouter>

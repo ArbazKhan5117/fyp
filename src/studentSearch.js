@@ -29,7 +29,7 @@ class StudentSearch extends Component {
             'Content-Type': 'application/json;charset=UTF-8',
             "Access-Control-Allow-Origin": "*"
         }
-        axios.post('http://localhost/fyp-backend/signup/fetchLevelSubject.php', fd, headers
+        axios.post('http://localhost/fyp-backend/signup/fetchLevelSubjectSearchTutor.php', fd, headers
         ).then(response => {
             this.setState({ subject_arr: response.data[0].subject });
         });
@@ -100,6 +100,7 @@ class StudentSearch extends Component {
                                     <tr>
                                         <th>Profile</th>
                                         <th>Name</th>
+                                        <th>Rank</th>
                                         <th>Subject</th>
 
                                         <th>City</th>
@@ -109,8 +110,9 @@ class StudentSearch extends Component {
                                     {this.state.tutors.map(i => {
                                         return (
                                             <tr>
-                                                <td><img src={'/uploads/' + i.profile} /></td>
+                                                <td className="prof-img"><img src={'/uploads/' + i.profile}/></td>
                                                 <td>{i.name}</td>
+                                                {i.rank ? <td>{Math.floor(i.rank)}</td> : <td>--</td>}
                                                 <td>{this.state.subject}</td>
 
                                                 <td>{i.city}</td>

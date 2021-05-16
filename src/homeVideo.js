@@ -39,11 +39,12 @@ class HomeVideo extends Component {
     fetchLevelSubject = () => {
 
         const fd = new FormData();
+        fd.append('level', this.props.level);
         var headers = {
             'Content-Type': 'application/json;charset=UTF-8',
             "Access-Control-Allow-Origin": "*"
         }
-        axios.post('http://localhost/fyp-backend/signup/fetchLevelSubject.php', fd, headers
+        axios.post('http://localhost/fyp-backend/signup/fetchLevelSubjectSearchLectures.php', fd, headers
         ).then(response => {
             this.setState({ subject_arr: response.data[0].subject });
         });

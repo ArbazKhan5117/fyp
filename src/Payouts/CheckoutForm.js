@@ -18,7 +18,7 @@ export const CheckoutForm = (props) => {
   console.log(props.balance);
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if(price < props.balance){
+    if(parseInt(price) < parseInt(props.balance)){
       
     setProcessing(1);
     const { error, paymentMethod } = await stripe.createPaymentMethod({
@@ -51,6 +51,7 @@ export const CheckoutForm = (props) => {
       setProcessing(0);
     }
   }else{
+    console.log(`Price: ${price}, Balance: ${props.balance}`);
     alert('Your balance is insufficient');
     setProcessing(0);
   }
@@ -65,7 +66,7 @@ export const CheckoutForm = (props) => {
     </form>
     {processing === 1 ? <h4 className="processing-class">Payout in Processing...</h4> : ''}
     {count === 1 ? 
-    <UpdateBalance price={price} user_id={props.user_id} balance={props.balance}/> : ''
+    <UpdateBalance price={price} user_id={props.user_id} balance={props.balance} updation={props.updation}/> : ''
   }
   </div>
   );

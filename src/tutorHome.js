@@ -11,7 +11,10 @@ class TutorHome extends Component {
         this.state={
             user_id: parseInt(this.props.location.state.user_id, 10),
             notifications: [],
-            clickCheck: 'no'
+            notices: [],
+            clickCheck: 'no',
+            notificationsNum: null,
+            count: 0
         };
         this.handleNotify=this.handleNotify.bind(this);
         this.handleCloseNotify=this.handleCloseNotify.bind(this);
@@ -45,8 +48,10 @@ class TutorHome extends Component {
         }
         axios.post('http://localhost/fyp-backend/signup/checkNotifications.php', fdup, headers
         ).then(res => {
-            console.log(res.data);
-            this.setState({ notifications: res.data });
+            console.log(res.data[0]);
+            this.setState({ notifications: res.data[0].data });
+            this.setState({ notices: res.data[0].notices });
+            this.setState({notificationsNum: (res.data[0].notices.length + res.data[0].data.length)});
         }
         );
     }
@@ -63,11 +68,21 @@ class TutorHome extends Component {
         
         return (
             <div>
-                {this.state.notifications.length && this.state.clickCheck === 'no' ? 
-                 <button className="notifyBtn" onClick={this.handleNotify}>Notifications: <spam className="notifyNum">{this.state.notifications.length}</spam></button> : ''
+                {(this.state.notifications.length || this.state.notices.length) && this.state.clickCheck === 'no' ? 
+                 <button className="notifyBtn" onClick={this.handleNotify}>Notifications: <spam className="notifyNum">{this.state.notificationsNum}</spam></button> : ''
                 }
                 {this.state.clickCheck === 'yes' ?
                 <div className="notifyList">
+                    {this.state.notices.length ? <h6 className="admin-notice">Notices from Admin</h6> : ''}
+                    {this.state.notices.map((i,key)=>{
+                        return(
+                            <div className="notifyExp">
+                                <p>[{key+1}]:{i.note}: <spam className="notifyNum">{i.notice}</spam></p> 
+                                
+                            </div>
+                        )
+                    })}
+                    {this.state.notifications.length ? <h6>Notifications from Rating</h6> : ''}
                     {this.state.notifications.map((i,key)=>{
                         return(
                             <div className="notifyExp">

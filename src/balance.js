@@ -29,6 +29,7 @@ class Balance extends Component {
         }
         );
     }
+    
     render() {
         const username = this.props.location.state.username;
         const contact = this.props.location.state.contact;
@@ -49,10 +50,9 @@ class Balance extends Component {
                 <div className="Tutor-balance">
                     <div className="balance-class">
                         <h3>Your Balance: ${this.state.balance}</h3>
-                        <StripeContainer balance={this.state.balance} user_id={this.state.user_id}/>
+                        <StripeContainer balance={this.state.balance} user_id={this.state.user_id} updation={this.fetchBalance}/>
                     </div>
                 </div>
-                {this.fetchBalance()}
                 <Footer />
             </div>
         );

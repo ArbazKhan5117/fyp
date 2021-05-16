@@ -2,12 +2,12 @@ import React,{Component} from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
 import './css/login.css';
-class NewPassword extends Component{
+class AdminNewPassword extends Component{
     constructor(props){
         super(props);
         this.state={
             name: '',
-            email: '',
+            id: '',
             contact: '',
             password: '',
             confirm: '',
@@ -37,14 +37,14 @@ class NewPassword extends Component{
         else if(this.state.password.match(paswd)){
         const fd = new FormData();
         fd.append('name', this.props.name);
-        fd.append('email', this.props.email);
+        fd.append('id', this.props.id);
         fd.append('contact', this.props.contact);
         fd.append('password', this.state.password);
         var headers = {
             'Content-Type': 'application/json;charset=UTF-8',
             "Access-Control-Allow-Origin": "*"
         }
-        axios.post('http://localhost/fyp-backend/signup/newpassword.php', fd, headers
+        axios.post('http://localhost/fyp-backend/signup/adminnewpassword.php', fd, headers
         ).then(res => {
             console.log(res.data.data);
             console.log(res.data.valid);
@@ -72,9 +72,9 @@ class NewPassword extends Component{
                 <button type="submit" className="forget-btn">Update</button>
                 {this.state.valid==='yes' ? <h4 className="newpass-msg">{this.state.message}</h4> : ''}
                 </form>
-                <h5>Go back to Login Page ?<Link to="/login"><spam className="login-signup-btn">Click here</spam></Link></h5>
+                <h5>Go back to Login Page ?<Link to="/adminlogin"><spam className="login-signup-btn">Click here</spam></Link></h5>
             </div>
         );
     }
 }
-export default NewPassword;
+export default AdminNewPassword;

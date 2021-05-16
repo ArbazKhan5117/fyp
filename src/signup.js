@@ -171,7 +171,7 @@ class Signup extends Component {
     render() {
         return (
             <div className="signup">
-                <Header username="login-header" />
+                <Header username="admin-header" />
                 <div className='signup-class'>
                     <h2>Register yourself</h2>
 

@@ -23,6 +23,7 @@ class UpdateBalance extends Component{
         ).then(res => {
             //console.log(res.data);
             console.log(res.data.data);
+            this.props.updation();
         }
         );
     }

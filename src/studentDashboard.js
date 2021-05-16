@@ -52,7 +52,7 @@ class StudentDashboard extends Component {
         axios.post('http://localhost/fyp-backend/signup/updateRating.php', fd, headers
         ).then(res => {
             console.log(res.data.data);
-            
+            this.fetchLectures();
         });
     }
     fetchLectures() {
@@ -74,7 +74,7 @@ class StudentDashboard extends Component {
         this.setState({ index: key, isPressed: 'yes' });
     }
     closeVideo() {
-        this.setState({ index: 0, isPressed: 'no' });
+        this.setState({ index: 0, isPressed: 'no', isreviewed: 'no' });
     }
     componentDidMount() {
         document.addEventListener('contextmenu', (e) => {

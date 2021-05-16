@@ -6,7 +6,9 @@ body{
 	list-style:none;
 
 }
+.newPassword-class,
 .forget-class,
+.adminlogin-class,
 .login-class{
     width: 500px;
     margin:30px 280px;
@@ -20,6 +22,7 @@ h2{
     padding-top:20px;
     font-family: "Times New Roman", Times, serif;
 }
+.adminlogin-class h5,
 .login-class h5{
     font-style: italic;
 }
@@ -33,6 +36,7 @@ h2{
 }
 
 .forget-class h6,
+.adminlogin-class h6,
 .login-class h6{
     padding-bottom:20px;
 }
@@ -81,9 +85,10 @@ h6{
 .newpass-msg{
     padding-top:0px;
     padding-bottom:0px;
-    color: rgb(90, 56, 56);
+    color: rgb(112, 6, 6);
 }
 .forget-class .login-input,
+.adminlogin-class .login-input,
 .login-class .login-input{
     border-radius: 5px;
     height:25px;
@@ -95,10 +100,28 @@ h6{
 -moz-box-shadow: -8px 10px 5px 0px rgba(136,107,107,0.75);
 }
 .forget-class .login-input:hover,
+.adminlogin-class .login-input:hover,
 .login-class .login-input:hover{
     border:2px solid rgb(104, 203, 236);
     transform:scale(1.08);
     transition:all .25s ease-in-out;
     
 
+}
+
+/*-----------------------------------------------------Admin-CSS---------------------------------------*/
+
+.adminForgetState{
+    padding-top: 10px;
+}
+.adminlogin-class{
+    margin-top: 70px;
+}
+.newPassword-class{
+    position: absolute;
+    margin:0px;
+    margin-top: -300px;
+    background: Gainsboro;
+    z-index: 100px;
+    height:370px;
 }
