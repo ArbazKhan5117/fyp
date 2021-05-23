@@ -1,14 +1,19 @@
+.confirmDelete-admin,
 .confirmDelete-class{
     position: absolute;
-    width: 350px;
     height: 70px;
+    width:400px;
     background:white;
     border:1px solid gray;
     border-radius: 20px;
     margin-top: -250px;
-    margin-left: 180px;
+    margin-left: 360px;
     
 }
+.confirmDelete-admin{
+    margin-top:-250px;
+}
+.confirmDelete-admin h4,
 .confirmDelete-class h4{
     margin-left: -50px;
     margin-top: 10px;

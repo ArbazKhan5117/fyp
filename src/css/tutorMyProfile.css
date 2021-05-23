@@ -67,6 +67,9 @@
     font-family: "Times New Roman", Times, serif;
     font-weight: bold;
 }
+.edit-info .submit-btn{
+  margin-right:70px;
+}
 .edit-info .submit-edit{
     margin-top:15px;
 }
@@ -159,6 +162,10 @@
     
 
 }
+.edit-info .profile-input{
+  color: transparent;
+  margin-right:-140px;
+}
 .edit-info .signup-select{
     border-radius: 5px;
     height:30px;
@@ -226,3 +233,4 @@
     background-color: #4CAF50;
     color: white;
   }
+

@@ -24,7 +24,9 @@ class StudentMyProfile extends Component {
             cityEdit: '',
             countryEdit: '',
             edited: 'no',
-            level_arr: []
+            level_arr: [],
+            newProfile: '',
+            newname: ''
         }
         this.passwordHandler = this.passwordHandler.bind(this);
         this.passSubmitHandler = this.passSubmitHandler.bind(this);
@@ -37,6 +39,9 @@ class StudentMyProfile extends Component {
         this.uploadProfile = this.uploadProfile.bind(this);
         this.profileHandler = this.profileHandler.bind(this);
         this.submitEditHandler = this.submitEditHandler.bind(this);
+        this.generateProfileName = this.generateProfileName.bind(this);
+        this.renameHandler = this.renameHandler.bind(this);
+        this.updateUploadedProfiles = this.updateUploadedProfiles.bind(this);
         this.fetchLevelSubject();
     }
     fetchLevelSubject = () => {
@@ -85,6 +90,7 @@ class StudentMyProfile extends Component {
     }
     profileHandler = (event) => {
         event.preventDefault();
+        this.setState({profile: null, profileName: ''});
         this.setState({
             profile: event.target.files[0], profileName: event.target.files[0].name
         });
@@ -123,6 +129,7 @@ class StudentMyProfile extends Component {
             //handle success
             if (res.data === 'The image has been uploaded') {
                 alert(res.data);
+                this.generateProfileName();
             } else {
                 alert('This image has large pixels, please upload normal image');
             }
@@ -136,7 +143,54 @@ class StudentMyProfile extends Component {
 
 
     }
+    generateProfileName = () => {
+        const fd = new FormData();
+        fd.append('name', this.state.profileName);
+        var headers = {
+            'Content-Type': 'application/json;charset=UTF-8',
+            "Access-Control-Allow-Origin": "*"
+        }
+        axios.post('http://localhost/fyp-backend/signup/giveNewNameToUser.php', fd, headers
+        ).then(res => {
 
+            this.setState({ newname: res.data.num });
+            this.renameHandler();
+
+        }
+        );
+    }
+    renameHandler() {
+        const fd = new FormData();
+        this.setState({newname: (parseInt(this.state.newname)+1)});
+        fd.append('name', this.state.profileName);
+        fd.append('newname', this.state.newname);
+        var headers = {
+            'Content-Type': 'application/json;charset=UTF-8',
+            "Access-Control-Allow-Origin": "*"
+        }
+        axios.post('http://localhost/fyp-backend/signup/renameUserProfile.php', fd, headers
+        ).then(res => {
+            let extension = this.state.profileName.split('.').pop();
+            let upgradedName = `${this.state.newname}.${extension}`;
+            this.setState({ newProfile: upgradedName, upload: 'yes' });
+            this.updateUploadedProfiles();
+            console.log(this.state.newProfile);
+        }
+        );
+    }
+    updateUploadedProfiles(){
+        const fd = new FormData();
+        fd.append('profile', this.state.newProfile);
+        var headers = {
+            'Content-Type': 'application/json;charset=UTF-8',
+            "Access-Control-Allow-Origin": "*"
+        }
+        axios.post('http://localhost/fyp-backend/signup/updateUploadedUserProfiles.php', fd, headers
+        ).then(res => {
+            console.log(res.data);
+        }
+        );
+    }
     passSubmitHandler(event) {
         event.preventDefault();
         const fd = new FormData();
@@ -166,19 +220,15 @@ class StudentMyProfile extends Component {
         }
         );
     }
-
+    componentDidMount = () => {
+        this.setState({newProfile: this.props.location.state.profile});
+    }
     submitEditHandler(event) {
         event.preventDefault();
         const fd = new FormData();
         //this.state.profileName === '' ? this.setState({finalName: this.state.profileNameEdit}) : this.setState({finalName: this.state.profileName});
         //console.log(this.state.profileName);
-        if ((this.state.profileName === this.state.profileNameEdit) || (this.state.profileName === '')) {
-            fd.append('profile', this.state.profileNameEdit);
-        } else {
-            fd.append('profile', this.state.profileName);
-        }
-        this.setState({ finalName: this.state.profileName });
-        console.log(this.state.finalName);
+        fd.append('profile', this.state.newProfile);
         fd.append('email', this.state.emailEdit);
         fd.append('name', this.state.nameEdit);
         fd.append('level', this.state.levelEdit);
@@ -226,25 +276,20 @@ class StudentMyProfile extends Component {
             city = this.state.cityEdit;
             country = this.state.countryEdit;
             user_id = this.props.location.state.user_id;
-            // profile=this.state.finalName;
-            if ((this.state.profileName === this.state.profileNameEdit) || (this.state.profileName === '')) {
-                profile = this.state.profileNameEdit;
-            } else {
-                profile = this.state.finalName;
-            }
+            profile = this.state.newProfile;
         }
 
         //this.setState({nameEdit: username});
         return (
             <div>
 
-                <Header username={username} desig="Student" profile={profile} />
+                <Header username={username} desig="Student" profile={this.state.newProfile} />
                 <Menu page="MyProfile" username={username} email={email} level={level} contact={contact}
-                    profile={profile} user_id={user_id} city={city} country={country} />
+                    profile={this.state.newProfile} user_id={user_id} city={city} country={country} />
                 <div className="studentMyProfile-class">
                     <div className="present-info">
                         <div className="profile">
-                            <img src={'/uploads/' + profile}></img>
+                            <img src={'/uploads/' + this.state.newProfile}></img>
                         </div>
 
                         <table className="customers">
@@ -293,7 +338,7 @@ class StudentMyProfile extends Component {
 
                                 <label className="level-label" >Profile Image:</label>
                                 <input type="file" name="profile" className="profile-input" onChange={this.profileHandler} />
-                                {this.state.upload === 'yes' ? '' : <button className="profile-label" onClick={this.uploadProfile}>Upload Profile:</button>}<br />
+                                {this.state.upload === 'yes' ? '' : <button className="profile-label" onClick={this.uploadProfile}>Upload</button>}<br />
                                 
                                 <table className="customers-edit">
 

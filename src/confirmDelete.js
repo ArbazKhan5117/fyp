@@ -20,8 +20,8 @@ class ConfirmDelete extends Component{
 
     render(){
         return(
-            <div className="confirmDelete-class">
-                <h4>Are you sure you want to delete {this.props.item}?</h4>
+            <div className={this.props.compName === 'editSubjects' ? "confirmDelete-class" : "confirmDelete-admin"}>
+                <h4>Are you sure you want to {this.props.info} "{this.props.item}"?</h4>
                 <button className="login-btn-yes" onClick={this.handleYes}>Yes</button>
                 <button className="login-btn-no" onClick={this.handleNo}>No</button>
             </div>

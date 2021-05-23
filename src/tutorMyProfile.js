@@ -25,7 +25,9 @@ class TutorMyProfile extends Component {
             finalName: '',
             upload: 'yes',
             edited: 'no',
-            subject_arr: []
+            subject_arr: [],
+            newname: '',
+            newProfile: ''
         }
         this.passwordHandler = this.passwordHandler.bind(this);
         this.passSubmitHandler = this.passSubmitHandler.bind(this);
@@ -39,7 +41,13 @@ class TutorMyProfile extends Component {
         this.countryEditHandler = this.countryEditHandler.bind(this);
         this.educationEditHandler = this.educationEditHandler.bind(this);
         this.submitEditHandler = this.submitEditHandler.bind(this);
+        this.generateProfileName = this.generateProfileName.bind(this);
+        this.renameHandler = this.renameHandler.bind(this);
+        this.updateUploadedProfiles = this.updateUploadedProfiles.bind(this);
         this.fetchLevelSubject();
+    }
+    componentDidMount = () => {
+        this.setState({newProfile: this.props.location.state.profile});
     }
     passwordHandler = (event) => {
         event.preventDefault();
@@ -129,6 +137,7 @@ class TutorMyProfile extends Component {
             //handle success
             if (res.data === 'The image has been uploaded') {
                 alert(res.data);
+                this.generateProfileName();
             } else {
                 alert('This image has large pixels, please upload normal image');
             }
@@ -142,7 +151,54 @@ class TutorMyProfile extends Component {
 
 
     }
+    generateProfileName = () => {
+        const fd = new FormData();
+        fd.append('name', this.state.profileName);
+        var headers = {
+            'Content-Type': 'application/json;charset=UTF-8',
+            "Access-Control-Allow-Origin": "*"
+        }
+        axios.post('http://localhost/fyp-backend/signup/giveNewNameToUser.php', fd, headers
+        ).then(res => {
 
+            this.setState({ newname: res.data.num });
+            this.renameHandler();
+
+        }
+        );
+    }
+    renameHandler() {
+        const fd = new FormData();
+        this.setState({newname: (parseInt(this.state.newname)+1)});
+        fd.append('name', this.state.profileName);
+        fd.append('newname', this.state.newname);
+        var headers = {
+            'Content-Type': 'application/json;charset=UTF-8',
+            "Access-Control-Allow-Origin": "*"
+        }
+        axios.post('http://localhost/fyp-backend/signup/renameUserProfile.php', fd, headers
+        ).then(res => {
+            let extension = this.state.profileName.split('.').pop();
+            let upgradedName = `${this.state.newname}.${extension}`;
+            this.setState({ newProfile: upgradedName, upload: 'yes' });
+            this.updateUploadedProfiles();
+            console.log(this.state.newProfile);
+        }
+        );
+    }
+    updateUploadedProfiles(){
+        const fd = new FormData();
+        fd.append('profile', this.state.newProfile);
+        var headers = {
+            'Content-Type': 'application/json;charset=UTF-8',
+            "Access-Control-Allow-Origin": "*"
+        }
+        axios.post('http://localhost/fyp-backend/signup/updateUploadedUserProfiles.php', fd, headers
+        ).then(res => {
+            console.log(res.data);
+        }
+        );
+    }
     passSubmitHandler(event) {
         event.preventDefault();
         const fd = new FormData();
@@ -179,13 +235,8 @@ class TutorMyProfile extends Component {
         const fd = new FormData();
         //this.state.profileName === '' ? this.setState({finalName: this.state.profileNameEdit}) : this.setState({finalName: this.state.profileName});
         //console.log(this.state.profileName);
-        if ((this.state.profileName === this.state.profileNameEdit) || (this.state.profileName === '')) {
-            fd.append('profile', this.state.profileNameEdit);
-        } else {
-            fd.append('profile', this.state.profileName);
-        }
-        this.setState({ finalName: this.state.profileName });
-        console.log(this.state.profileName);
+        
+        fd.append('profile', this.state.newProfile);
         fd.append('email', this.state.emailEdit);
         fd.append('name', this.state.nameEdit);
         fd.append('subject', this.state.subjectEdit);
@@ -238,25 +289,22 @@ class TutorMyProfile extends Component {
             country = this.state.countryEdit;
             user_id = this.props.location.state.user_id;
             // profile=this.state.finalName;
-            if ((this.state.profileName === this.state.profileNameEdit) || (this.state.profileName === '')) {
-                profile = this.state.profileNameEdit;
-            } else {
-                profile = this.state.finalName;
-            }
+            profile = this.state.newProfile;
+            
         }
 
         //this.setState({nameEdit: username});
         return (
             <div>
 
-                <Header username={username} desig="Tutor" profile={profile} />
+                <Header username={username} desig="Tutor" profile={this.state.newProfile} />
                 <TutorMenu page="MyProfile" username={username} email={email} subject={subject}
-                    contact={contact} profile={profile} education={education} city={city} country={country}
+                    contact={contact} profile={this.state.newProfile} education={education} city={city} country={country}
                     user_id={user_id} />
                 <div className="studentMyProfile-class">
                     <div className="present-info">
                         <div className="profile">
-                            <img src={'/uploads/' + profile}></img>
+                            <img src={'/uploads/' + this.state.newProfile}></img>
                         </div>
                         <table className="customers-tutorInfo">
                             <tr>
@@ -304,7 +352,7 @@ class TutorMyProfile extends Component {
 
                                 <label className="level-label" >Profile Image:</label>
                                 <input type="file" name="profile" className="profile-input" onChange={this.profileHandler} />
-                                {this.state.upload === 'yes' ? '' : <button className="profile-label" onClick={this.uploadProfile}>Upload Profile:</button>}<br />
+                                {this.state.upload === 'yes' ? '' : <button className="profile-label" onClick={this.uploadProfile}>Upload</button>}<br />
                                 
                                 <table className="customers-edit-tutor">
                                     <tr>
@@ -329,7 +377,7 @@ class TutorMyProfile extends Component {
                                         <td><input type="text" value={this.state.cityEdit} onChange={this.cityEditHandler} placeholder="City Name" className="login-input chng" /></td>
                                     </tr>
                                     <tr>
-                                        <td></td>
+                                        
                                         <td className="subject-edit-label">Subject</td>
                                         <td><select value={this.state.subjectEdit} onChange={this.subjectEditHandler} className="signup-select chng">
                                             {this.state.subject_arr.map(i => {
@@ -338,6 +386,7 @@ class TutorMyProfile extends Component {
                                                 );
                                             })}
                                         </select></td>
+                                        <td></td>
                                         <td></td>
                                     </tr>
                                 </table>

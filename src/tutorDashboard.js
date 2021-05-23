@@ -5,6 +5,7 @@ import Header from './header.js';
 import Footer from './footer.js';
 import PlayVideo from './playVideo.js';
 import EditVideoInfo from './editVideoInfo';
+import ConfirmDelete from './confirmDelete.js';
 import './css/studentDashboard.css';
 class TutorDashboard extends Component {
     constructor(props) {
@@ -15,9 +16,14 @@ class TutorDashboard extends Component {
             isPressedVideo: 'no',
             isPressedContent: 'no',
             isPressedEdit: 'no',
-            video_arr: []
+            video_arr: [],
+            delete_id: '',
+            confirm: 'no'
         }
         this.fetchLectures();
+        this.goToDelete=this.goToDelete.bind(this);
+        this.noDelete=this.noDelete.bind(this);
+        this.deleteVideo=this.deleteVideo.bind(this);
     };
     fetchLectures() {
         const fdup = new FormData();
@@ -42,15 +48,23 @@ class TutorDashboard extends Component {
     editVideo(key){
         this.setState({index: key,isPressedEdit: 'yes'});
     }
-    deleteVideo(key){
+    goToDelete(key){
+        this.setState({delete_id: this.state.video_arr[key].video_id, confirm: 'yes'});
+    }
+    noDelete(){
+        this.setState({delete_id: null,confirm: 'no'});
+    }
+    deleteVideo(){
         const fd = new FormData();
-                fd.append('video_id', this.state.video_arr[key].video_id);
+                fd.append('video_id', this.state.delete_id);
+                this.setState({delete_id: null,confirm: 'no'});
                 var headers = {
                     'Content-Type': 'application/json;charset=UTF-8',
                     "Access-Control-Allow-Origin": "*"
                 }
                 axios.post('http://localhost/fyp-backend/signup/deleteVideoLecture.php', fd, headers
                 ).then(res => {
+                        
                         alert(res.data.data);
                         this.fetchLectures();
                         
@@ -113,7 +127,7 @@ class TutorDashboard extends Component {
                                     <td className="btnTut-td"><button className="playTut-btn" onClick={()=> this.playContent(key)}>Play</button></td>
                                     <td className="btnTut-td"><button className="playTut-btn" onClick={()=> this.playVideo(key)}>Play</button></td>
                                     <td className="btnEdit-td"><button className="playTut-btn" onClick={()=> this.editVideo(key)}>Edit</button></td>
-                                    <td className="btnDelete-td"><button className="playTut-btn" onClick={()=> this.deleteVideo(key)}>Delete</button></td>
+                                    <td className="btnDelete-td"><button className="playTut-btn" onClick={()=> this.goToDelete(key)}>Delete</button></td>
                                 </tr>
                             );
                         })}
@@ -123,6 +137,7 @@ class TutorDashboard extends Component {
                 </div>
                 </div>
                 <Footer />
+                {this.state.confirm === 'yes' ? <ConfirmDelete delete={this.deleteVideo} item='this lecture' noDelete={this.noDelete} compName='editSubjects' info='delete' /> : ''}
                 {this.state.isPressedVideo === 'yes' ? <PlayVideo videoName={this.state.video_arr[this.state.index].videoName} videoType={this.state.video_arr[this.state.index].videoType} type='video'/> : ''}
                 {this.state.isPressedContent === 'yes' ? <PlayVideo videoName={this.state.video_arr[this.state.index].contentVideoName} videoType={this.state.video_arr[this.state.index].contentVideoType} type='content'/> : ''}
                 {this.state.isPressedEdit === 'yes' ? <EditVideoInfo level={this.state.video_arr[this.state.index].level} subject={this.state.video_arr[this.state.index].subject} topic={this.state.video_arr[this.state.index].topic}
